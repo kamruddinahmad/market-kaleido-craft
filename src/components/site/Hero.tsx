@@ -61,15 +61,16 @@ export function Hero() {
             </h3>
 
             <div className="mt-6 space-y-3">
-              <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 px-4 focus-within:border-teal">
-                <span className="text-sm text-muted-foreground">+91</span>
+              <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 px-3 py-1 transition-colors focus-within:border-teal">
+                <CountryCodeSelect value={country} onChange={setCountry} />
                 <input
                   type="tel"
                   placeholder="98765 43210"
-                  className="w-full bg-transparent py-3.5 text-sm outline-none placeholder:text-muted-foreground/60"
+                  className="w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground/60"
                 />
               </div>
             </div>
+
 
             <div className="mt-5">
               <button className="w-full rounded-2xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-5 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
