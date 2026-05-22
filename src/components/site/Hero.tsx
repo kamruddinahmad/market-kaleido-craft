@@ -86,7 +86,7 @@ export function Hero() {
         </div>
 
         {/* Right: Headline */}
-        <div className="order-1 lg:order-2 text-center lg:text-left">
+        <div className="order-1 lg:order-1 text-center lg:text-left">
           <div className="inline-flex items-center gap-2 rounded-full border border-border/70 glass px-3 py-1.5 text-xs font-medium text-muted-foreground">
             <span className="size-1.5 rounded-full bg-teal animate-pulse-glow" />
             Introducing AlgoAI
