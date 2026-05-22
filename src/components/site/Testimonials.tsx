@@ -22,7 +22,7 @@ export function Testimonials() {
         </div>
 
         <div
-          className="group/marquee mt-14 overflow-hidden"
+          className="mt-14 overflow-hidden"
           style={{
             maskImage:
               "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
