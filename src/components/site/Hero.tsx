@@ -5,11 +5,14 @@ import { CountryCodeSelect, COUNTRIES, type Country } from "./CountryCodeSelect"
 
 
 export function Hero() {
+  const [country, setCountry] = useState<Country>(COUNTRIES[0]);
+
   const tags = [
     { icon: ShieldCheck, label: "Trusted by Traders Across India" },
     { icon: Sparkles, label: "Built Inside SMC ACE 2.0" },
     { icon: Zap, label: "AI-Powered Strategy Engine" },
   ];
+
 
   return (
     <section className="relative isolate overflow-hidden pt-32 pb-24">
