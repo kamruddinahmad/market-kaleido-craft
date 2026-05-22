@@ -138,9 +138,43 @@
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
+@keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+@keyframes fade-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes wiggle { 0%, 100% { transform: rotate(0); } 25% { transform: rotate(-6deg); } 75% { transform: rotate(6deg); } }
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
 .animate-spin-slow { animation: spin-slow 40s linear infinite; }
 .animate-spin-reverse { animation: spin-reverse 55s linear infinite; }
 .animate-float { animation: float 6s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 .animate-ticker { animation: ticker 40s linear infinite; }
 .animate-marquee { animation: ticker 45s linear infinite; }
+.animate-blink { animation: blink 1.05s steps(2, start) infinite; }
+.animate-fade-in { animation: fade-in 0.6s ease-out both; }
+.animate-wiggle { animation: wiggle 0.6s ease-in-out; }
+.text-shimmer {
+  background: linear-gradient(90deg,
+    color-mix(in oklab, var(--foreground) 70%, transparent) 0%,
+    var(--teal) 50%,
+    color-mix(in oklab, var(--foreground) 70%, transparent) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+.bg-ai-gradient {
+  background: linear-gradient(120deg,
+    oklch(0.55 0.18 250),
+    oklch(0.70 0.16 210),
+    oklch(0.78 0.14 195),
+    oklch(0.70 0.18 285),
+    oklch(0.55 0.18 250));
+  background-size: 300% 300%;
+  animation: gradient-shift 8s ease infinite;
+}
+.icon-hover { transition: transform 0.3s ease, color 0.3s ease; }
+.icon-hover:hover { transform: translateY(-2px) scale(1.1) rotate(-4deg); }
+
