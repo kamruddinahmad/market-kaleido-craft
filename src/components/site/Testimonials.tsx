@@ -30,12 +30,13 @@ export function Testimonials() {
               "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
           }}
         >
-          <div className="flex w-max gap-5 animate-marquee group-hover/marquee:[animation-play-state:paused]">
+          <div className="flex w-max gap-5 animate-marquee hover:[animation-play-state:paused]">
             {[...testimonials, ...testimonials].map((t, i) => (
               <figure
                 key={i}
-                className="glass relative flex w-[320px] flex-shrink-0 flex-col rounded-3xl p-6 sm:w-[380px]"
+                className="glass relative flex w-[320px] flex-shrink-0 flex-col rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1 hover:border-teal/50 hover:shadow-[0_0_40px_-10px_oklch(0.78_0.14_195/0.5)] sm:w-[380px]"
               >
+
                 <div className="flex gap-0.5 text-teal">
                   {Array.from({ length: 5 }).map((_, k) => (
                     <Star key={k} className="size-4 fill-current" />
