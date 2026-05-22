@@ -95,13 +95,19 @@ export function Hero() {
 
         {/* Right: Headline */}
         <div className="order-1 lg:order-1 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border/70 glass px-3 py-1.5 text-xs font-medium text-muted-foreground">
-            <span className="size-1.5 rounded-full bg-teal animate-pulse-glow" />
-            Introducing AlgoAI
+          <div className="inline-flex items-center gap-2 rounded-full border border-border/70 glass px-3 py-1.5 text-xs font-medium text-muted-foreground animate-fade-in">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal opacity-60" />
+              <span className="relative inline-flex size-2 rounded-full bg-teal" />
+            </span>
+            <BrainCircuit className="size-3.5 text-teal animate-pulse-glow" />
+            <span className="text-shimmer">Introducing AlgoAI — Neural Trading Engine</span>
           </div>
           <h1 className="mt-5 text-5xl font-bold tracking-tight md:text-6xl">
             <span className="text-gradient-hero">The New Intelligence Behind Every Trade</span>
+            <span className="ml-1 inline-block h-[0.9em] w-[3px] translate-y-1 bg-teal animate-blink" />
           </h1>
+
           <p className="mt-6 text-base text-muted-foreground md:text-lg">
             Experience the future of automated trading with AI-powered strategy builder, expert-built strategies,
             real-time execution, and intelligent risk management — all inside the SMC ACE 2.0 ecosystem.
