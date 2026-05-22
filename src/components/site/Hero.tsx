@@ -1,4 +1,8 @@
-import { ShieldCheck, Sparkles, Zap, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { ShieldCheck, Sparkles, Zap, ChevronRight, BrainCircuit } from "lucide-react";
+import { CountryCodeSelect, COUNTRIES, type Country } from "./CountryCodeSelect";
+
+
 
 export function Hero() {
   const tags = [
