@@ -52,9 +52,6 @@ export function Hero() {
             <h3 className="text-2xl font-bold tracking-tight">
               Start Trading Smarter <span className="text-gradient-brand">with AlgoAI</span>
             </h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Zero in the middle. Pure intelligence at the edge.
-            </p>
 
             <div className="mt-6 space-y-3">
               <label className="block text-xs font-medium uppercase tracking-wider text-muted-foreground">
