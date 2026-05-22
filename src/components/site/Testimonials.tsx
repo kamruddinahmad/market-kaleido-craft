@@ -21,30 +21,38 @@ export function Testimonials() {
           </p>
         </div>
 
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <figure
-              key={t.name}
-              className={`glass relative flex flex-col rounded-3xl p-6 transition-all hover:-translate-y-1 hover:border-teal/40 ${
-                i === 0 ? "lg:col-span-1" : ""
-              }`}
-            >
-              <div className="flex gap-0.5 text-teal">
-                {Array.from({ length: 5 }).map((_, k) => (
-                  <Star key={k} className="size-4 fill-current" />
-                ))}
-              </div>
-              <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
-                "{t.quote}"
-              </blockquote>
-              <figcaption className="mt-5 flex items-center gap-3 border-t border-border/60 pt-4">
-                <div className="inline-flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-primary to-teal text-sm font-bold text-primary-foreground">
-                  {t.name[0]}
+        <div
+          className="group/marquee mt-14 overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div className="flex w-max gap-5 animate-marquee group-hover/marquee:[animation-play-state:paused]">
+            {[...testimonials, ...testimonials].map((t, i) => (
+              <figure
+                key={i}
+                className="glass relative flex w-[320px] flex-shrink-0 flex-col rounded-3xl p-6 sm:w-[380px]"
+              >
+                <div className="flex gap-0.5 text-teal">
+                  {Array.from({ length: 5 }).map((_, k) => (
+                    <Star key={k} className="size-4 fill-current" />
+                  ))}
                 </div>
-                <div className="text-sm font-semibold">{t.name}</div>
-              </figcaption>
-            </figure>
-          ))}
+                <blockquote className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  "{t.quote}"
+                </blockquote>
+                <figcaption className="mt-5 flex items-center gap-3 border-t border-border/60 pt-4">
+                  <div className="inline-flex size-9 items-center justify-center rounded-full bg-gradient-to-br from-primary to-teal text-sm font-bold text-primary-foreground">
+                    {t.name[0]}
+                  </div>
+                  <div className="text-sm font-semibold">{t.name}</div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
