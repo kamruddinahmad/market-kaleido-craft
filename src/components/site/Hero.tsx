@@ -1,11 +1,18 @@
-import { ShieldCheck, Sparkles, Zap, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { ShieldCheck, Sparkles, Zap, ChevronRight, BrainCircuit } from "lucide-react";
+import { CountryCodeSelect, COUNTRIES, type Country } from "./CountryCodeSelect";
+
+
 
 export function Hero() {
+  const [country, setCountry] = useState<Country>(COUNTRIES[0]);
+
   const tags = [
     { icon: ShieldCheck, label: "Trusted by Traders Across India" },
     { icon: Sparkles, label: "Built Inside SMC ACE 2.0" },
     { icon: Zap, label: "AI-Powered Strategy Engine" },
   ];
+
 
   return (
     <section className="relative isolate overflow-hidden pt-32 pb-24">
@@ -54,15 +61,16 @@ export function Hero() {
             </h3>
 
             <div className="mt-6 space-y-3">
-              <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 px-4 focus-within:border-teal">
-                <span className="text-sm text-muted-foreground">+91</span>
+              <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 px-3 py-1 transition-colors focus-within:border-teal">
+                <CountryCodeSelect value={country} onChange={setCountry} />
                 <input
                   type="tel"
                   placeholder="98765 43210"
-                  className="w-full bg-transparent py-3.5 text-sm outline-none placeholder:text-muted-foreground/60"
+                  className="w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground/60"
                 />
               </div>
             </div>
+
 
             <div className="mt-5">
               <button className="w-full rounded-2xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-5 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
@@ -87,13 +95,19 @@ export function Hero() {
 
         {/* Right: Headline */}
         <div className="order-1 lg:order-1 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border/70 glass px-3 py-1.5 text-xs font-medium text-muted-foreground">
-            <span className="size-1.5 rounded-full bg-teal animate-pulse-glow" />
-            Introducing AlgoAI
+          <div className="inline-flex items-center gap-2 rounded-full border border-border/70 glass px-3 py-1.5 text-xs font-medium text-muted-foreground animate-fade-in">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal opacity-60" />
+              <span className="relative inline-flex size-2 rounded-full bg-teal" />
+            </span>
+            <BrainCircuit className="size-3.5 text-teal animate-pulse-glow" />
+            <span className="text-shimmer">Introducing AlgoAI — Neural Trading Engine</span>
           </div>
           <h1 className="mt-5 text-5xl font-bold tracking-tight md:text-6xl">
             <span className="text-gradient-hero">The New Intelligence Behind Every Trade</span>
+            <span className="ml-1 inline-block h-[0.9em] w-[3px] translate-y-1 bg-teal animate-blink" />
           </h1>
+
           <p className="mt-6 text-base text-muted-foreground md:text-lg">
             Experience the future of automated trading with AI-powered strategy builder, expert-built strategies,
             real-time execution, and intelligent risk management — all inside the SMC ACE 2.0 ecosystem.
