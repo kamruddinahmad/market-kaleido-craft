@@ -72,9 +72,6 @@ export function Walkthrough() {
               </ul>
             </div>
             <div className="flex flex-wrap gap-3 md:justify-end">
-              <button className="rounded-full border border-border bg-background/50 px-6 py-3 text-sm font-medium transition-colors hover:bg-accent">
-                Login to SMC ACE 2.0
-              </button>
               <button className="rounded-full bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
                 Start Now
               </button>

@@ -1,4 +1,4 @@
-import { PlayCircle, ShieldCheck, Sparkles, Zap, ChevronRight } from "lucide-react";
+import { ShieldCheck, Sparkles, Zap, ChevronRight } from "lucide-react";
 
 export function Hero() {
   const tags = [
@@ -54,9 +54,6 @@ export function Hero() {
             </h3>
 
             <div className="mt-6 space-y-3">
-              <label className="block text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                Mobile Number
-              </label>
               <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 px-4 focus-within:border-teal">
                 <span className="text-sm text-muted-foreground">+91</span>
                 <input
@@ -65,18 +62,11 @@ export function Hero() {
                   className="w-full bg-transparent py-3.5 text-sm outline-none placeholder:text-muted-foreground/60"
                 />
               </div>
-              <button className="w-full rounded-2xl border border-teal/40 bg-teal/10 px-4 py-3 text-sm font-medium text-teal transition-colors hover:bg-teal/20">
-                Fetch Client Details
-              </button>
             </div>
 
-            <div className="mt-5 flex gap-3">
-              <button className="flex-1 rounded-2xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-5 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
+            <div className="mt-5">
+              <button className="w-full rounded-2xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-5 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
                 Get Started
-              </button>
-              <button className="flex items-center justify-center gap-2 rounded-2xl border border-border px-5 py-3.5 text-sm font-medium transition-colors hover:bg-accent">
-                <PlayCircle className="size-4 text-red-400" />
-                Product Tour
               </button>
             </div>
 
@@ -120,31 +110,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Ticker */}
-      <div className="relative mt-20 overflow-hidden border-y border-border/60 bg-background/40 py-3 backdrop-blur">
-        <div className="flex w-max animate-ticker gap-10 whitespace-nowrap text-xs font-medium text-muted-foreground">
-          {Array.from({ length: 2 }).map((_, k) => (
-            <div key={k} className="flex gap-10">
-              {[
-                ["NIFTY 50", "24,852.30", "+0.84%"],
-                ["BANKNIFTY", "55,210.85", "+1.12%"],
-                ["SENSEX", "81,432.10", "+0.67%"],
-                ["RELIANCE", "2,945.50", "-0.32%"],
-                ["TCS", "4,128.75", "+1.45%"],
-                ["HDFCBANK", "1,712.20", "+0.98%"],
-                ["INFY", "1,895.40", "-0.22%"],
-                ["ICICIBANK", "1,256.60", "+1.08%"],
-              ].map(([s, p, c]) => (
-                <span key={s + k} className="flex items-center gap-2">
-                  <span className="text-foreground">{s}</span>
-                  <span>{p}</span>
-                  <span className={c.startsWith("+") ? "text-teal" : "text-red-400"}>{c}</span>
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
