@@ -44,7 +44,7 @@ export function Hero() {
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
         {/* Left: Lead capture */}
-        <div className="order-2 lg:order-1">
+        <div className="order-2 lg:order-2">
           <div className="glass-strong relative rounded-3xl p-8 glow">
             <div className="absolute -top-3 left-8 rounded-full bg-gradient-to-r from-primary to-teal px-3 py-1 text-xs font-semibold tracking-wide text-primary-foreground">
               FREE ACCESS
