@@ -1,11 +1,10 @@
 import { CheckCircle2, Rocket, Shield, Activity, Gauge, Repeat } from "lucide-react";
 
 const benefits = [
-  { icon: Rocket, title: "One-click deployment with live automation" },
-  { icon: Shield, title: "Smart risk-managed execution systems" },
-  { icon: Activity, title: "Continuous monitoring & optimization" },
-  { icon: Gauge, title: "Faster execution with low-latency automation" },
-  { icon: Repeat, title: "Built for consistency, discipline & scalability" },
+  { icon: Rocket, title: "Deploy proven strategies instantly with one-click live automation" },
+  { icon: Activity, title: "Real-time monitoring, adaptive optimization & seamless performance tracking" },
+  { icon: Repeat, title: "Designed for disciplined, scalable & consistency-driven trading" },
+  { icon: Gauge, title: "Ultra-fast, low-latency trade execution for maximum efficiency" },
 ];
 
 const steps = [
@@ -21,7 +20,7 @@ export function ReadyMade() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Steps - moved above Ready-Made Strategies */}
         <div className="mx-auto max-w-3xl text-center">
-          <h3 className="text-3xl font-bold tracking-tight md:text-4xl">
+          <h3 className="text-4xl font-bold tracking-tight">
             <span className="text-gradient-brand">Get, Set, Algo</span>
           </h3>
           <p className="mt-4 text-muted-foreground">
@@ -56,11 +55,11 @@ export function ReadyMade() {
             <span className="text-gradient-brand">Ready-Made Strategies</span>
           </h2>
           <p className="mt-5 text-muted-foreground">
-            Deploy professionally engineered trading systems within minutes — without writing a single line of code.
+            Build less. Trade smarter. Automate instantly.
           </p>
         </div>
 
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {benefits.map(({ icon: Icon, title }) => (
             <div key={title} className="glass flex flex-col gap-3 rounded-3xl p-6 transition-all hover:-translate-y-1 hover:border-teal/40">
               <Icon className="size-6 text-teal" />
