@@ -19,27 +19,8 @@ export function ReadyMade() {
   return (
     <section id="strategies" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
+        {/* Steps - moved above Ready-Made Strategies */}
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
-            <span className="text-gradient-brand">Ready-Made Strategies</span>
-          </h2>
-          <p className="mt-5 text-muted-foreground">
-            Deploy professionally engineered trading systems within minutes — without writing a single line of code.
-          </p>
-        </div>
-
-        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {benefits.map(({ icon: Icon, title }) => (
-            <div key={title} className="glass flex flex-col gap-3 rounded-3xl p-6 transition-all hover:-translate-y-1 hover:border-teal/40">
-              <Icon className="size-6 text-teal" />
-              <p className="text-sm font-medium leading-relaxed">{title}</p>
-              <CheckCircle2 className="mt-auto size-4 text-teal/60" />
-            </div>
-          ))}
-        </div>
-
-        {/* Steps */}
-        <div className="mt-24 mx-auto max-w-3xl text-center">
           <h3 className="text-3xl font-bold tracking-tight md:text-4xl">
             Get Started in <span className="text-gradient-brand">4 Easy Steps</span>
           </h3>
@@ -67,6 +48,27 @@ export function ReadyMade() {
             </div>
           ))}
         </div>
+
+        {/* Ready-Made Strategies */}
+        <div className="mt-24 mx-auto max-w-3xl text-center">
+          <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+            <span className="text-gradient-brand">Ready-Made Strategies</span>
+          </h2>
+          <p className="mt-5 text-muted-foreground">
+            Deploy professionally engineered trading systems within minutes — without writing a single line of code.
+          </p>
+        </div>
+
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          {benefits.map(({ icon: Icon, title }) => (
+            <div key={title} className="glass flex flex-col gap-3 rounded-3xl p-6 transition-all hover:-translate-y-1 hover:border-teal/40">
+              <Icon className="size-6 text-teal" />
+              <p className="text-sm font-medium leading-relaxed">{title}</p>
+              <CheckCircle2 className="mt-auto size-4 text-teal/60" />
+            </div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
