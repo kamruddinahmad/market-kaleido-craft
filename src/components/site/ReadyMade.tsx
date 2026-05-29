@@ -16,7 +16,7 @@ const steps = [
 
 export function ReadyMade() {
   return (
-    <section id="strategies" className="relative pt-0 pb-28">
+    <section id="strategies" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
         {/* Steps - moved above Ready-Made Strategies */}
         <div className="mx-auto max-w-3xl text-center">

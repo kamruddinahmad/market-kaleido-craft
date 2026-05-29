@@ -13,7 +13,7 @@ const features = [
 
 export function Features() {
   return (
-    <section id="features" className="relative pt-0 pb-28">
+    <section id="features" className="relative py-28">
       <div className="absolute inset-0 -z-10 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
