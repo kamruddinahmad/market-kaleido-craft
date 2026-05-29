@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { ShieldCheck, Sparkles, Zap, ChevronRight, BrainCircuit } from "lucide-react";
+import { ShieldCheck, Sparkles, Zap, BrainCircuit } from "lucide-react";
 import { CountryCodeSelect, COUNTRIES, type Country } from "./CountryCodeSelect";
-
-
+import heroAi from "@/assets/hero-ai.jpg";
 
 export function Hero() {
   const [country, setCountry] = useState<Country>(COUNTRIES[0]);
@@ -12,7 +11,6 @@ export function Hero() {
     { icon: Sparkles, label: "Built Inside SMC ACE 2.0" },
     { icon: Zap, label: "AI-Powered Strategy Engine" },
   ];
-
 
   return (
     <section className="relative isolate overflow-hidden pt-32 pb-24">
@@ -50,17 +48,36 @@ export function Hero() {
       </div>
 
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
-        {/* Left: Lead capture */}
-        <div className="order-2 lg:order-2">
-          <div className="glass-strong relative rounded-3xl p-8 glow">
-            <div className="absolute -top-3 left-8 rounded-full bg-gradient-to-r from-primary to-teal px-3 py-1 text-xs font-semibold tracking-wide text-primary-foreground">
-              FREE ACCESS
-            </div>
-            <h3 className="text-2xl font-bold tracking-tight">
-              Start Trading Smarter <span className="text-gradient-brand">with AlgoAI</span>
-            </h3>
+        {/* Left: Heading + Form */}
+        <div className="order-2 lg:order-1 text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border/70 glass px-3 py-1.5 text-xs font-medium text-muted-foreground animate-fade-in">
+            <span className="relative flex size-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal opacity-60" />
+              <span className="relative inline-flex size-2 rounded-full bg-teal" />
+            </span>
+            <BrainCircuit className="size-3.5 text-teal animate-pulse-glow" />
+            <span className="text-shimmer">Neural Trading Engine</span>
+          </div>
 
-            <div className="mt-6 space-y-3">
+          {/* Heading: "Introducing" + logo */}
+          <h1 className="mt-5 flex flex-col items-center gap-3 lg:items-start">
+            <span className="text-4xl font-bold tracking-tight md:text-5xl">
+              <span className="text-gradient-hero">Introducing</span>
+            </span>
+            <img
+              src="/algoai-logo-light.png"
+              alt="AlgoAI by SMC"
+              className="h-16 w-auto md:h-20 lg:h-24"
+            />
+          </h1>
+
+          <p className="mt-5 text-lg font-medium text-muted-foreground md:text-xl">
+            The New Intelligence Behind Every Trade
+          </p>
+
+          {/* Form */}
+          <div className="mt-8 max-w-md mx-auto lg:mx-0">
+            <div className="glass-strong relative rounded-3xl p-6 glow">
               <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 px-3 py-1 transition-colors focus-within:border-teal">
                 <CountryCodeSelect value={country} onChange={setCountry} />
                 <input
@@ -69,61 +86,53 @@ export function Hero() {
                   className="w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground/60"
                 />
               </div>
-            </div>
-
-
-            <div className="mt-5">
-              <button className="w-full rounded-2xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-5 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
+              <button className="mt-4 w-full rounded-2xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-5 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
                 Get Started
               </button>
+              <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+                No coding required • Ready-Made Strategies • AI-powered Building • Unlimited Backtesting
+              </p>
             </div>
 
-            <p className="mt-5 text-xs leading-relaxed text-muted-foreground">
-              No coding required • Ready-Made Strategies • AI-powered Building • Unlimited Backtesting •
-              Real-Time Practice Trading • Options Strategy Builder with Payoff Graph & Greeks • TradingView Integration
-            </p>
-          </div>
-
-          <div className="mt-5 flex flex-wrap gap-2">
-            {tags.map(({ icon: Icon, label }) => (
-              <span key={label} className="glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-                <Icon className="size-3.5 text-teal" /> {label}
-              </span>
-            ))}
+            <div className="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start">
+              {tags.map(({ icon: Icon, label }) => (
+                <span key={label} className="glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-muted-foreground">
+                  <Icon className="size-3.5 text-teal" /> {label}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* Right: Headline */}
-        <div className="order-1 lg:order-1 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border/70 glass px-3 py-1.5 text-xs font-medium text-muted-foreground animate-fade-in">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal opacity-60" />
-              <span className="relative inline-flex size-2 rounded-full bg-teal" />
-            </span>
-            <BrainCircuit className="size-3.5 text-teal animate-pulse-glow" />
-            <span className="text-shimmer">Introducing AlgoAI — Neural Trading Engine</span>
-          </div>
-          <h1 className="mt-5 text-5xl font-bold tracking-tight md:text-6xl">
-            <span className="text-gradient-hero">The New Intelligence Behind Every Trade</span>
-            <span className="ml-1 inline-block h-[0.9em] w-[3px] translate-y-1 bg-teal animate-blink" />
-          </h1>
+        {/* Right: Hero image */}
+        <div className="order-1 lg:order-2 relative">
+          <div className="relative mx-auto max-w-md lg:max-w-none">
+            <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-teal/20 via-violet/15 to-cyan/20 blur-2xl animate-pulse-glow" />
+            <div className="relative overflow-hidden rounded-3xl border border-border/60 glass-strong glow-violet">
+              <img
+                src={heroAi}
+                alt="AI-powered trading intelligence visualization"
+                width={1024}
+                height={1024}
+                className="h-auto w-full object-cover"
+              />
+            </div>
 
-          <p className="mt-6 text-base text-muted-foreground md:text-lg">
-            Experience the future of automated trading with AI-powered strategy builder, expert-built strategies,
-            real-time execution, and intelligent risk management — all inside the SMC ACE 2.0 ecosystem.
-          </p>
-
-          <div className="mt-8 inline-flex flex-wrap items-center gap-3 rounded-full border border-border/70 glass px-5 py-2.5 text-xs text-muted-foreground">
-            {["Create", "Backtest", "Deploy", "Monitor"].map((s, i) => (
-              <span key={s} className="flex items-center gap-3">
-                <span className={i === 0 ? "text-foreground font-medium" : ""}>{s}</span>
-                {i < 3 && <ChevronRight className="size-3.5 text-teal/70" />}
-              </span>
-            ))}
+            {/* Floating stat cards */}
+            <div className="glass absolute -left-4 top-8 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block">
+              <div className="text-muted-foreground">Live Signals</div>
+              <div className="text-lg font-bold text-teal">2,847</div>
+            </div>
+            <div
+              className="glass absolute -right-4 bottom-10 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block"
+              style={{ animationDelay: "1.5s" }}
+            >
+              <div className="text-muted-foreground">AI Confidence</div>
+              <div className="text-lg font-bold text-violet">96%</div>
+            </div>
           </div>
         </div>
       </div>
-
     </section>
   );
 }
