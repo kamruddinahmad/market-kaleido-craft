@@ -22,7 +22,7 @@ export function Testimonials() {
         </div>
 
         <div
-          className="mt-14 overflow-hidden"
+          className="marquee-pause mt-14 overflow-hidden"
           style={{
             maskImage:
               "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
@@ -30,7 +30,8 @@ export function Testimonials() {
               "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
           }}
         >
-          <div className="group flex w-max gap-5 animate-marquee [&:hover]:[animation-play-state:paused]">
+          <div className="flex w-max gap-5 animate-marquee">
+
             {[...testimonials, ...testimonials].map((t, i) => (
               <figure
                 key={i}
