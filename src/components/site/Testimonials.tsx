@@ -30,7 +30,7 @@ export function Testimonials() {
               "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
           }}
         >
-          <div className="flex w-max gap-5 animate-marquee hover:[animation-play-state:paused]">
+          <div className="group flex w-max gap-5 animate-marquee [&:hover]:[animation-play-state:paused]">
             {[...testimonials, ...testimonials].map((t, i) => (
               <figure
                 key={i}
