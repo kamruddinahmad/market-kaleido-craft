@@ -1,4 +1,12 @@
+import { useState } from "react";
 import { LineChart, Activity, Calculator, History, Table2, Library } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const features = [
   { icon: LineChart, title: "Live Option Chain" },
@@ -9,7 +17,109 @@ const features = [
   { icon: Library, title: "30+ Ready-Made Strategies" },
 ];
 
+type Strategy = {
+  label: string;
+  maxProfit: string;
+  path: string;
+  area: string;
+  greeks: { k: string; v: string }[];
+};
+
+const strategies: Record<string, Strategy> = {
+  "iron-condor": {
+    label: "Iron Condor",
+    maxProfit: "Max Profit ₹4,250",
+    path: "M0 160 L80 160 L140 60 L260 60 L320 160 L400 160",
+    area: "M0 160 L80 160 L140 60 L260 60 L320 160 L400 160 L400 200 L0 200 Z",
+    greeks: [
+      { k: "Delta", v: "+0.02" },
+      { k: "Theta", v: "+18.4" },
+      { k: "Vega", v: "−6.1" },
+    ],
+  },
+  straddle: {
+    label: "Long Straddle",
+    maxProfit: "Max Profit Unlimited",
+    path: "M0 20 L200 160 L400 20",
+    area: "M0 20 L200 160 L400 20 L400 200 L0 200 Z",
+    greeks: [
+      { k: "Delta", v: "0.00" },
+      { k: "Theta", v: "−22.5" },
+      { k: "Vega", v: "+14.8" },
+    ],
+  },
+  strangle: {
+    label: "Long Strangle",
+    maxProfit: "Max Profit Unlimited",
+    path: "M0 40 L150 160 L250 160 L400 40",
+    area: "M0 40 L150 160 L250 160 L400 40 L400 200 L0 200 Z",
+    greeks: [
+      { k: "Delta", v: "+0.01" },
+      { k: "Theta", v: "−18.2" },
+      { k: "Vega", v: "+12.4" },
+    ],
+  },
+  "bull-call": {
+    label: "Bull Call Spread",
+    maxProfit: "Max Profit ₹3,100",
+    path: "M0 160 L140 160 L260 60 L400 60",
+    area: "M0 160 L140 160 L260 60 L400 60 L400 200 L0 200 Z",
+    greeks: [
+      { k: "Delta", v: "+0.35" },
+      { k: "Theta", v: "−4.2" },
+      { k: "Vega", v: "+3.6" },
+    ],
+  },
+  "bear-put": {
+    label: "Bear Put Spread",
+    maxProfit: "Max Profit ₹2,850",
+    path: "M0 60 L140 60 L260 160 L400 160",
+    area: "M0 60 L140 60 L260 160 L400 160 L400 200 L0 200 Z",
+    greeks: [
+      { k: "Delta", v: "−0.32" },
+      { k: "Theta", v: "−3.8" },
+      { k: "Vega", v: "+3.2" },
+    ],
+  },
+  butterfly: {
+    label: "Butterfly Spread",
+    maxProfit: "Max Profit ₹3,750",
+    path: "M0 160 L120 160 L200 40 L280 160 L400 160",
+    area: "M0 160 L120 160 L200 40 L280 160 L400 160 L400 200 L0 200 Z",
+    greeks: [
+      { k: "Delta", v: "0.00" },
+      { k: "Theta", v: "+12.6" },
+      { k: "Vega", v: "−8.4" },
+    ],
+  },
+  "covered-call": {
+    label: "Covered Call",
+    maxProfit: "Max Profit ₹2,400",
+    path: "M0 180 L200 80 L400 60",
+    area: "M0 180 L200 80 L400 60 L400 200 L0 200 Z",
+    greeks: [
+      { k: "Delta", v: "+0.55" },
+      { k: "Theta", v: "+6.8" },
+      { k: "Vega", v: "−2.4" },
+    ],
+  },
+  "iron-butterfly": {
+    label: "Iron Butterfly",
+    maxProfit: "Max Profit ₹5,100",
+    path: "M0 160 L160 160 L200 40 L240 160 L400 160",
+    area: "M0 160 L160 160 L200 40 L240 160 L400 160 L400 200 L0 200 Z",
+    greeks: [
+      { k: "Delta", v: "0.00" },
+      { k: "Theta", v: "+24.1" },
+      { k: "Vega", v: "−9.8" },
+    ],
+  },
+};
+
 export function Options() {
+  const [selected, setSelected] = useState<string>("iron-condor");
+  const strat = strategies[selected];
+
   return (
     <section id="options" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
@@ -17,9 +127,20 @@ export function Options() {
           {/* Mock payoff chart */}
           <div className="order-2 lg:order-1">
             <div className="glass-strong rounded-3xl p-6 glow">
-              <div className="flex items-center justify-between text-xs text-muted-foreground">
-                <span>NIFTY • Iron Condor • 28 Nov Exp</span>
-                <span className="text-teal">Max Profit ₹4,250</span>
+              <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
+                <Select value={selected} onValueChange={setSelected}>
+                  <SelectTrigger className="h-8 w-[220px] text-xs">
+                    <SelectValue placeholder="Select strategy" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {Object.entries(strategies).map(([k, s]) => (
+                      <SelectItem key={k} value={k} className="text-xs">
+                        NIFTY • {s.label} • 28 Nov Exp
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <span className="text-teal whitespace-nowrap">{strat.maxProfit}</span>
               </div>
               <svg viewBox="0 0 400 200" className="mt-4 w-full">
                 <defs>
@@ -32,24 +153,16 @@ export function Options() {
                   <line key={y} x1="0" x2="400" y1={y} y2={y} stroke="currentColor" strokeOpacity="0.08" />
                 ))}
                 <line x1="0" x2="400" y1="120" y2="120" stroke="oklch(0.72 0.02 255)" strokeOpacity="0.4" strokeDasharray="4 4" />
+                <path d={strat.area} fill="url(#payoffGrad)" />
                 <path
-                  d="M0 160 L80 160 L140 60 L260 60 L320 160 L400 160 L400 200 L0 200 Z"
-                  fill="url(#payoffGrad)"
-                />
-                <path
-                  d="M0 160 L80 160 L140 60 L260 60 L320 160 L400 160"
+                  d={strat.path}
                   fill="none"
                   stroke="oklch(0.78 0.14 195)"
                   strokeWidth="2.5"
                 />
-                <circle cx="200" cy="60" r="4" fill="oklch(0.78 0.14 195)" />
               </svg>
               <div className="mt-4 grid grid-cols-3 gap-3 text-xs">
-                {[
-                  { k: "Delta", v: "+0.02" },
-                  { k: "Theta", v: "+18.4" },
-                  { k: "Vega", v: "−6.1" },
-                ].map((g) => (
+                {strat.greeks.map((g) => (
                   <div key={g.k} className="rounded-xl border border-border bg-background/40 p-3 text-center">
                     <div className="text-muted-foreground">{g.k}</div>
                     <div className="mt-1 font-semibold">{g.v}</div>
@@ -66,11 +179,6 @@ export function Options() {
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">Analyse Risk. Visualize Profit. Trade Smarter.</p>
             <p className="mt-6 text-muted-foreground">
-              Designed for modern options traders, AlgoAI's Options Platform combines powerful analytics with an intuitive trading experience.
-              Access live option chains, interactive payoff graphs, payoff tables, real-time Greeks analysis, and advanced backtesting tools —
-              all within a single platform.
-            </p>
-            <p className="mt-3 text-muted-foreground">
               Explore 30+ ready-made options strategies and make informed trading decisions with greater confidence and clarity.
             </p>
 
