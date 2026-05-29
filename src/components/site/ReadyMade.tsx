@@ -20,7 +20,7 @@ export function ReadyMade() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Steps - moved above Ready-Made Strategies */}
         <div className="mx-auto max-w-3xl text-center">
-          <h3 className="text-4xl font-bold tracking-tight">
+          <h3 className="text-4xl font-bold tracking-tight md:text-5xl">
             <span className="text-gradient-brand">Get, Set, Algo</span>
           </h3>
           <p className="mt-4 text-muted-foreground">
