@@ -22,11 +22,12 @@ export function ReadyMade() {
         {/* Steps - moved above Ready-Made Strategies */}
         <div className="mx-auto max-w-3xl text-center">
           <h3 className="text-3xl font-bold tracking-tight md:text-4xl">
-            Get Started in <span className="text-gradient-brand">4 Easy Steps</span>
+            <span className="text-gradient-brand">Get, Set, Algo</span>
           </h3>
           <p className="mt-4 text-muted-foreground">
-            Start your automated trading journey in just a few clicks.
+            Start your automated trading journey
           </p>
+
         </div>
 
         <div className="relative mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
