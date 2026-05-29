@@ -1,4 +1,4 @@
-import { Sparkles, BrainCircuit, ArrowRight } from "lucide-react";
+import { BrainCircuit, ArrowRight } from "lucide-react";
 import heroBrain from "@/assets/hero-brain.png";
 
 export function Hero() {
