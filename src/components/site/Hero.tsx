@@ -73,7 +73,7 @@ export function Hero() {
 
           {/* Form */}
           <div className="mt-8 max-w-md mx-auto lg:mx-0">
-            <div className="glass-strong relative rounded-3xl p-3 glow">
+            <div className="relative">
               <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 pl-4 pr-2 py-1 transition-colors focus-within:border-teal">
                 <input
                   type="tel"
@@ -88,15 +88,8 @@ export function Hero() {
                 No coding required • Ready-Made Strategies • AI-powered Building • Unlimited Backtesting
               </p>
             </div>
-
-            <div className="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start">
-              {tags.map(({ icon: Icon, label }) => (
-                <span key={label} className="glass inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs text-muted-foreground">
-                  <Icon className="size-3.5 text-teal" /> {label}
-                </span>
-              ))}
-            </div>
           </div>
+
         </div>
 
         {/* Right: Robotic brain (transparent) */}
