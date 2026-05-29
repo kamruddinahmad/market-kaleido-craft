@@ -1,11 +1,7 @@
-import { useState } from "react";
-import { ShieldCheck, Sparkles, Zap, BrainCircuit } from "lucide-react";
-import { CountryCodeSelect, COUNTRIES, type Country } from "./CountryCodeSelect";
-import heroAi from "@/assets/hero-ai.jpg";
+import { ShieldCheck, Sparkles, Zap, BrainCircuit, ArrowRight } from "lucide-react";
+import heroBrain from "@/assets/hero-brain.png";
 
 export function Hero() {
-  const [country, setCountry] = useState<Country>(COUNTRIES[0]);
-
   const tags = [
     { icon: ShieldCheck, label: "Trusted by Traders Across India" },
     { icon: Sparkles, label: "Built Inside SMC ACE 2.0" },
@@ -77,19 +73,18 @@ export function Hero() {
 
           {/* Form */}
           <div className="mt-8 max-w-md mx-auto lg:mx-0">
-            <div className="glass-strong relative rounded-3xl p-6 glow">
-              <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 px-3 py-1 transition-colors focus-within:border-teal">
-                <CountryCodeSelect value={country} onChange={setCountry} />
+            <div className="glass-strong relative rounded-3xl p-3 glow">
+              <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 pl-4 pr-2 py-1 transition-colors focus-within:border-teal">
                 <input
                   type="tel"
-                  placeholder="98765 43210"
+                  placeholder="Enter your mobile number"
                   className="w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground/60"
                 />
+                <button className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
+                  Get Started <ArrowRight className="size-4" />
+                </button>
               </div>
-              <button className="mt-4 w-full rounded-2xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-5 py-3.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
-                Get Started
-              </button>
-              <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
+              <p className="mt-3 px-2 text-xs leading-relaxed text-muted-foreground">
                 No coding required • Ready-Made Strategies • AI-powered Building • Unlimited Backtesting
               </p>
             </div>
@@ -104,27 +99,25 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right: Hero image */}
+        {/* Right: Robotic brain (transparent) */}
         <div className="order-1 lg:order-2 relative">
           <div className="relative mx-auto max-w-md lg:max-w-none">
-            <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-teal/20 via-violet/15 to-cyan/20 blur-2xl animate-pulse-glow" />
-            <div className="relative overflow-hidden rounded-3xl border border-border/60 glass-strong glow-violet">
-              <img
-                src={heroAi}
-                alt="AI-powered trading intelligence visualization"
-                width={1024}
-                height={1024}
-                className="h-auto w-full object-cover"
-              />
-            </div>
+            <div className="absolute inset-0 -z-10 mx-auto h-[420px] w-[420px] translate-y-6 rounded-full bg-gradient-to-br from-teal/30 via-violet/25 to-cyan/20 blur-[100px] animate-pulse-glow" />
+            <img
+              src={heroBrain}
+              alt="Robotic AI brain powering algorithmic trading"
+              width={1024}
+              height={1024}
+              className="relative h-auto w-full max-w-[520px] mx-auto object-contain animate-float drop-shadow-[0_0_60px_oklch(0.78_0.14_185/0.5)]"
+            />
 
             {/* Floating stat cards */}
-            <div className="glass absolute -left-4 top-8 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block">
+            <div className="glass absolute left-0 top-10 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block">
               <div className="text-muted-foreground">Live Signals</div>
               <div className="text-lg font-bold text-teal">2,847</div>
             </div>
             <div
-              className="glass absolute -right-4 bottom-10 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block"
+              className="glass absolute right-0 bottom-10 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block"
               style={{ animationDelay: "1.5s" }}
             >
               <div className="text-muted-foreground">AI Confidence</div>
