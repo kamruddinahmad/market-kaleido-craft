@@ -52,7 +52,7 @@ export function Hero() {
           </div>
 
           {/* Heading: "Introducing" + logo */}
-          <h1 className="mt-5 flex flex-col items-center gap-3 lg:items-start">
+          <h1 className="mt-5 flex flex-col items-center gap-3 lg:items-end lg:text-right">
             <span className="text-4xl font-bold tracking-tight md:text-5xl">
               <span className="text-gradient-hero">Introducing</span>
             </span>
@@ -63,24 +63,25 @@ export function Hero() {
             />
           </h1>
 
-          <p className="mt-5 text-lg font-medium text-muted-foreground md:text-xl">
+          <p className="mt-5 text-lg font-medium text-muted-foreground md:text-xl lg:text-right">
             The New Intelligence Behind Every Trade
           </p>
 
           {/* Form */}
-          <div className="mt-8 max-w-md mx-auto lg:mx-0">
+          <div className="mt-14 max-w-md mx-auto lg:mx-0 lg:ml-auto">
             <div className="relative">
-              <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 pl-4 pr-2 py-1 transition-colors focus-within:border-teal">
+              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-teal/40 via-violet/40 to-cyan/40 blur-lg opacity-70 animate-pulse-glow" />
+              <div className="relative flex items-center gap-2 rounded-2xl border-2 border-teal/60 bg-background/90 pl-4 pr-2 py-1.5 shadow-[0_0_30px_oklch(0.78_0.14_185/0.35)] transition-colors focus-within:border-teal">
                 <input
                   type="tel"
                   placeholder="Enter your mobile number"
-                  className="w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground/60"
+                  className="w-full bg-transparent py-3 text-base font-medium outline-none placeholder:text-muted-foreground/70"
                 />
-                <button className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
+                <button className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
                   Get Started <ArrowRight className="size-4" />
                 </button>
               </div>
-              <p className="mt-3 px-2 text-xs leading-relaxed text-muted-foreground">
+              <p className="mt-3 px-2 text-xs leading-relaxed text-muted-foreground lg:text-right">
                 No coding required • Ready-Made Strategies • AI-powered Building • Unlimited Backtesting
               </p>
             </div>
@@ -90,14 +91,14 @@ export function Hero() {
 
         {/* Right: Robotic brain (transparent) */}
         <div className="order-1 lg:order-2 relative hidden lg:block">
-          <div className="relative mx-auto max-w-md lg:max-w-none">
-            <div className="absolute inset-0 -z-10 mx-auto h-[420px] w-[420px] translate-y-6 rounded-full bg-gradient-to-br from-teal/30 via-violet/25 to-cyan/20 blur-[100px] animate-pulse-glow" />
+          <div className="relative mx-auto max-w-sm lg:max-w-md">
+            <div className="absolute inset-0 -z-10 mx-auto h-[300px] w-[300px] translate-y-6 rounded-full bg-gradient-to-br from-teal/30 via-violet/25 to-cyan/20 blur-[100px] animate-pulse-glow" />
             <img
               src={heroBrain}
               alt="Robotic AI brain powering algorithmic trading"
               width={1024}
               height={1024}
-              className="relative h-auto w-full max-w-[520px] mx-auto object-contain animate-float drop-shadow-[0_0_60px_oklch(0.78_0.14_185/0.5)]"
+              className="relative h-auto w-full max-w-[380px] mx-auto object-contain animate-float drop-shadow-[0_0_60px_oklch(0.78_0.14_185/0.5)]"
             />
 
             {/* Floating stat cards */}
