@@ -110,8 +110,8 @@ export function ReadyMade() {
           </div>
 
           <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
-            {/* Left: copy + highlights */}
-            <div>
+            {/* Right: copy + highlights (now on the right on desktop) */}
+            <div className="order-2 lg:order-2">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal">
                 Ready-Made Strategies
               </span>
@@ -142,8 +142,8 @@ export function ReadyMade() {
               </ul>
             </div>
 
-            {/* Right: interactive strategy panel */}
-            <div className="relative">
+            {/* Left: interactive strategy panel (now on the left on desktop) */}
+            <div className="relative order-1 lg:order-1">
               <div className="glass-strong relative rounded-3xl p-5 glow">
                 <div className="flex items-center gap-2 border-b border-border/60 pb-3">
                   <div className="flex gap-1.5">
