@@ -179,7 +179,8 @@ export function ReadyMade() {
 
           <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
             {/* LEFT: heading + features */}
-            <div>
+            <div className="order-2">
+
               <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal">
                 <ShieldCheck className="size-3.5" /> Ready-Made Strategies
               </span>
