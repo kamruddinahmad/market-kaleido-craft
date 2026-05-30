@@ -149,14 +149,14 @@ export function Options() {
                 {/* axes */}
                 <line x1="20" x2="20" y1="10" y2="190" stroke="oklch(0.72 0.02 255)" strokeOpacity="0.5" />
                 <line x1="0" x2="400" y1="100" y2="100" stroke="oklch(0.72 0.02 255)" strokeOpacity="0.6" />
-                {/* profit fill (green) */}
-                <path d={toClosedPath(strat.points)} fill="oklch(0.75 0.18 145)" fillOpacity="0.32" clipPath="url(#profitClip)" />
-                {/* loss fill (red) */}
-                <path d={toClosedPath(strat.points)} fill="oklch(0.65 0.22 25)" fillOpacity="0.32" clipPath="url(#lossClip)" />
-                {/* profit line (green segment) */}
-                <path d={toLinePath(strat.points)} fill="none" stroke="oklch(0.78 0.20 145)" strokeWidth="2.5" clipPath="url(#profitClip)" />
-                {/* loss line (red segment) */}
-                <path d={toLinePath(strat.points)} fill="none" stroke="oklch(0.65 0.24 25)" strokeWidth="2.5" clipPath="url(#lossClip)" />
+                {/* profit fill (teal) */}
+                <path d={toClosedPath(strat.points)} fill="oklch(0.78 0.14 185)" fillOpacity="0.28" clipPath="url(#profitClip)" />
+                {/* loss fill (violet) */}
+                <path d={toClosedPath(strat.points)} fill="oklch(0.62 0.20 295)" fillOpacity="0.28" clipPath="url(#lossClip)" />
+                {/* profit line (teal segment) */}
+                <path d={toLinePath(strat.points)} fill="none" stroke="oklch(0.82 0.14 185)" strokeWidth="2.5" clipPath="url(#profitClip)" />
+                {/* loss line (violet segment) */}
+                <path d={toLinePath(strat.points)} fill="none" stroke="oklch(0.68 0.22 295)" strokeWidth="2.5" clipPath="url(#lossClip)" />
                 {/* labels */}
                 <text x="26" y="20" fill="currentColor" fillOpacity="0.6" fontSize="10">Profit</text>
                 <text x="26" y="194" fill="currentColor" fillOpacity="0.6" fontSize="10">Loss</text>
