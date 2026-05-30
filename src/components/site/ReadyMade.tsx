@@ -213,7 +213,7 @@ export function ReadyMade() {
             </div>
 
             {/* RIGHT: Marketplace panel */}
-            <div className="relative">
+            <div className="relative order-1">
               <div className="glass-strong relative rounded-3xl p-5 glow">
                 <div className="flex items-start justify-between gap-3">
                   <div>
