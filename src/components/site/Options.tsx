@@ -86,7 +86,7 @@ const toClosedPath = (pts: [number, number][]) =>
   `${toLinePath(pts)} L${pts[pts.length - 1][0]} 100 L${pts[0][0]} 100 Z`;
 
 export function Options() {
-  const [selected, setSelected] = useState<string>("iron-condor");
+  const [selected, setSelected] = useState<string>("bull-call");
   const [paused, setPaused] = useState(false);
   const strat = strategies[selected];
   const keys = useRef(Object.keys(strategies));
