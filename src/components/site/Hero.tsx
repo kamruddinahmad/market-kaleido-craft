@@ -94,7 +94,7 @@ export function Hero() {
             <img
               src="/algoai-logo-light.png"
               alt="AlgoAI by SMC"
-              className="absolute left-1/2 top-4 -translate-x-1/2 h-12 md:h-16 w-auto drop-shadow-[0_4px_20px_oklch(0.78_0.14_185/0.6)]"
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-10 md:h-12 w-auto drop-shadow-[0_4px_20px_oklch(0.78_0.14_185/0.7)]"
             />
 
             {/* Floating stat cards */}
