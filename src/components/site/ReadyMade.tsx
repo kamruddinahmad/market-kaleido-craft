@@ -296,18 +296,8 @@ export function ReadyMade() {
                 </div>
               </div>
 
-              {/* Floating badges */}
-              <div className="glass absolute -left-6 -top-6 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block">
-                <div className="text-muted-foreground">Live Strategies</div>
-                <div className="text-lg font-bold text-teal">50+</div>
-              </div>
-              <div
-                className="glass absolute -right-4 bottom-8 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block"
-                style={{ animationDelay: "1.5s" }}
-              >
-                <div className="text-muted-foreground">Avg Return</div>
-                <div className="text-lg font-bold text-violet">+89%</div>
-              </div>
+
+
             </div>
           </div>
         </div>
