@@ -57,7 +57,7 @@ export function Walkthrough() {
         </div>
 
         {/* CTA below video */}
-        <div className="relative mt-16 overflow-hidden rounded-3xl glass-strong p-10 md:p-14">
+        <div className="relative mt-[50px] overflow-hidden rounded-3xl glass-strong p-10 md:p-14">
           <div className="absolute -right-20 -top-20 size-80 rounded-full bg-primary/20 blur-[100px]" />
           <div className="absolute -left-20 -bottom-20 size-80 rounded-full bg-teal/20 blur-[100px]" />
           <div className="relative grid grid-cols-1 items-center gap-8 md:grid-cols-2">
