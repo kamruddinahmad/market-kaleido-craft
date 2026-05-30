@@ -179,7 +179,8 @@ export function ReadyMade() {
 
           <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
             {/* LEFT: heading + features */}
-            <div>
+            <div className="order-2">
+
               <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal">
                 <ShieldCheck className="size-3.5" /> Ready-Made Strategies
               </span>
@@ -212,7 +213,7 @@ export function ReadyMade() {
             </div>
 
             {/* RIGHT: Marketplace panel */}
-            <div className="relative">
+            <div className="relative order-1">
               <div className="glass-strong relative rounded-3xl p-5 glow">
                 <div className="flex items-start justify-between gap-3">
                   <div>
@@ -295,18 +296,8 @@ export function ReadyMade() {
                 </div>
               </div>
 
-              {/* Floating badges */}
-              <div className="glass absolute -left-6 -top-6 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block">
-                <div className="text-muted-foreground">Live Strategies</div>
-                <div className="text-lg font-bold text-teal">50+</div>
-              </div>
-              <div
-                className="glass absolute -right-4 bottom-8 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block"
-                style={{ animationDelay: "1.5s" }}
-              >
-                <div className="text-muted-foreground">Avg Return</div>
-                <div className="text-lg font-bold text-violet">+89%</div>
-              </div>
+
+
             </div>
           </div>
         </div>
