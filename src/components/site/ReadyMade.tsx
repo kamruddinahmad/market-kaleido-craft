@@ -142,8 +142,8 @@ export function ReadyMade() {
               </ul>
             </div>
 
-            {/* Right: interactive strategy panel */}
-            <div className="relative">
+            {/* Left: interactive strategy panel (now on the left on desktop) */}
+            <div className="relative order-1 lg:order-1">
               <div className="glass-strong relative rounded-3xl p-5 glow">
                 <div className="flex items-center gap-2 border-b border-border/60 pb-3">
                   <div className="flex gap-1.5">
