@@ -42,14 +42,7 @@ export function Hero() {
       <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 lg:grid-cols-2">
         {/* Left: Heading + Form */}
         <div className="order-2 lg:order-1 text-center lg:text-left">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border/70 glass px-3 py-1.5 text-xs font-medium text-muted-foreground animate-fade-in">
-            <span className="relative flex size-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal opacity-60" />
-              <span className="relative inline-flex size-2 rounded-full bg-teal" />
-            </span>
-            <BrainCircuit className="size-3.5 text-teal animate-pulse-glow" />
-            <span className="text-shimmer">Neural Trading Engine</span>
-          </div>
+
 
           {/* Heading: "Introducing" + logo */}
           <h1 className="mt-5 flex flex-col items-center gap-3 lg:items-start">
@@ -80,9 +73,6 @@ export function Hero() {
                   Get Started <ArrowRight className="size-4" />
                 </button>
               </div>
-              <p className="mt-3 px-2 text-xs leading-relaxed text-muted-foreground">
-                No coding required • Ready-Made Strategies • AI-powered Building • Unlimited Backtesting
-              </p>
             </div>
           </div>
 
