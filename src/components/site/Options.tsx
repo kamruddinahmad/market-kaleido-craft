@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LineChart, Activity, Calculator, History, Table2, Library } from "lucide-react";
+
 import {
   Select,
   SelectContent,
