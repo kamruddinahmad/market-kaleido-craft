@@ -135,22 +135,31 @@ export function Options() {
 
               <svg viewBox="0 0 400 200" className="mt-4 w-full">
                 <defs>
-                  <linearGradient id="payoffGrad" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stopColor="oklch(0.78 0.14 195)" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="oklch(0.78 0.14 195)" stopOpacity="0" />
-                  </linearGradient>
+                  <clipPath id="profitClip">
+                    <rect x="0" y="0" width="400" height="100" />
+                  </clipPath>
+                  <clipPath id="lossClip">
+                    <rect x="0" y="100" width="400" height="100" />
+                  </clipPath>
                 </defs>
-                {[40, 80, 120, 160].map((y) => (
-                  <line key={y} x1="0" x2="400" y1={y} y2={y} stroke="currentColor" strokeOpacity="0.08" />
+                {/* grid */}
+                {[20, 60, 140, 180].map((y) => (
+                  <line key={y} x1="0" x2="400" y1={y} y2={y} stroke="currentColor" strokeOpacity="0.06" />
                 ))}
-                <line x1="0" x2="400" y1="120" y2="120" stroke="oklch(0.72 0.02 255)" strokeOpacity="0.4" strokeDasharray="4 4" />
-                <path d={strat.area} fill="url(#payoffGrad)" />
-                <path
-                  d={strat.path}
-                  fill="none"
-                  stroke="oklch(0.78 0.14 195)"
-                  strokeWidth="2.5"
-                />
+                {/* axes */}
+                <line x1="20" x2="20" y1="10" y2="190" stroke="oklch(0.72 0.02 255)" strokeOpacity="0.5" />
+                <line x1="0" x2="400" y1="100" y2="100" stroke="oklch(0.72 0.02 255)" strokeOpacity="0.6" />
+                {/* profit fill (green) */}
+                <path d={toClosedPath(strat.points)} fill="oklch(0.75 0.18 145)" fillOpacity="0.32" clipPath="url(#profitClip)" />
+                {/* loss fill (red) */}
+                <path d={toClosedPath(strat.points)} fill="oklch(0.65 0.22 25)" fillOpacity="0.32" clipPath="url(#lossClip)" />
+                {/* profit line (green segment) */}
+                <path d={toLinePath(strat.points)} fill="none" stroke="oklch(0.78 0.20 145)" strokeWidth="2.5" clipPath="url(#profitClip)" />
+                {/* loss line (red segment) */}
+                <path d={toLinePath(strat.points)} fill="none" stroke="oklch(0.65 0.24 25)" strokeWidth="2.5" clipPath="url(#lossClip)" />
+                {/* labels */}
+                <text x="26" y="20" fill="currentColor" fillOpacity="0.6" fontSize="10">Profit</text>
+                <text x="26" y="194" fill="currentColor" fillOpacity="0.6" fontSize="10">Loss</text>
               </svg>
               <div className="mt-4 grid grid-cols-3 gap-3 text-xs">
                 {strat.greeks.map((g) => (
