@@ -62,19 +62,18 @@ export function Hero() {
 
           {/* Form */}
           <div className="mt-8 max-w-md mx-auto lg:mx-0">
-            <div className="relative group">
-              {/* Glow ring */}
-              <div className="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-teal via-cyan to-violet opacity-60 blur-md transition-opacity duration-300 group-focus-within:opacity-90 group-hover:opacity-80 animate-pulse-glow" />
-              <div className="relative flex items-center gap-2 rounded-2xl border-2 border-teal/60 bg-background/90 pl-4 pr-2 py-1 shadow-[0_0_30px_-5px_oklch(0.78_0.14_185/0.5)] transition-all focus-within:border-teal focus-within:shadow-[0_0_40px_-5px_oklch(0.78_0.14_185/0.8)]">
+            <div className="relative">
+              <div className="relative flex items-center gap-2 rounded-2xl border border-border bg-white pl-4 pr-2 py-1 transition-colors focus-within:border-teal">
                 <input
                   type="tel"
                   placeholder="Enter your mobile number"
-                  className="w-full bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground/60"
+                  className="w-full bg-transparent py-3 text-sm text-black outline-none placeholder:text-black/50"
                 />
                 <button className="inline-flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-4 py-2.5 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
                   Get Started <ArrowRight className="size-4" />
                 </button>
               </div>
+
 
             </div>
           </div>
