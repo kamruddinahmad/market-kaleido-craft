@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { LineChart, Activity, Calculator, History, Table2, Library } from "lucide-react";
+
 import {
   Select,
   SelectContent,
@@ -118,30 +119,52 @@ const strategies: Record<string, Strategy> = {
 
 export function Options() {
   const [selected, setSelected] = useState<string>("iron-condor");
+  const [paused, setPaused] = useState(false);
   const strat = strategies[selected];
+  const keys = useRef(Object.keys(strategies));
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setSelected((prev) => {
+        const arr = keys.current;
+        const i = arr.indexOf(prev);
+        return arr[(i + 1) % arr.length];
+      });
+    }, 3000);
+    return () => clearInterval(id);
+  }, [paused]);
 
   return (
     <section id="options" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           {/* Mock payoff chart */}
-          <div className="order-2 lg:order-1">
+          <div
+            className="order-2 lg:order-1"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
             <div className="glass-strong rounded-3xl p-6 glow">
               <div className="flex items-center justify-between gap-3 text-xs text-muted-foreground">
-                <Select value={selected} onValueChange={setSelected}>
-                  <SelectTrigger className="h-8 w-[220px] text-xs">
-                    <SelectValue placeholder="Select strategy" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {Object.entries(strategies).map(([k, s]) => (
-                      <SelectItem key={k} value={k} className="text-xs">
-                        NIFTY • {s.label} • 28 Nov Exp
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
+                <div className="relative">
+                  <span className="pointer-events-none absolute -inset-0.5 rounded-md bg-gradient-to-r from-teal via-cyan to-violet opacity-70 blur-sm animate-pulse-glow" />
+                  <Select value={selected} onValueChange={setSelected}>
+                    <SelectTrigger className="relative h-9 w-[240px] border-teal/60 bg-background/90 text-xs font-semibold text-foreground shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)] transition-all hover:border-teal focus:ring-2 focus:ring-teal/50">
+                      <SelectValue placeholder="Select strategy" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {Object.entries(strategies).map(([k, s]) => (
+                        <SelectItem key={k} value={k} className="text-xs">
+                          NIFTY • {s.label} • 28 Nov Exp
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
                 <span className="text-teal whitespace-nowrap">{strat.maxProfit}</span>
               </div>
+
               <svg viewBox="0 0 400 200" className="mt-4 w-full">
                 <defs>
                   <linearGradient id="payoffGrad" x1="0" x2="0" y1="0" y2="1">
