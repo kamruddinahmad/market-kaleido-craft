@@ -62,8 +62,10 @@ export function Hero() {
 
           {/* Form */}
           <div className="mt-8 max-w-md mx-auto lg:mx-0">
-            <div className="relative">
-              <div className="flex items-center gap-2 rounded-2xl border border-border bg-background/60 pl-4 pr-2 py-1 transition-colors focus-within:border-teal">
+            <div className="relative group">
+              {/* Glow ring */}
+              <div className="pointer-events-none absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-teal via-cyan to-violet opacity-60 blur-md transition-opacity duration-300 group-focus-within:opacity-90 group-hover:opacity-80 animate-pulse-glow" />
+              <div className="relative flex items-center gap-2 rounded-2xl border-2 border-teal/60 bg-background/90 pl-4 pr-2 py-1 shadow-[0_0_30px_-5px_oklch(0.78_0.14_185/0.5)] transition-all focus-within:border-teal focus-within:shadow-[0_0_40px_-5px_oklch(0.78_0.14_185/0.8)]">
                 <input
                   type="tel"
                   placeholder="Enter your mobile number"
@@ -73,6 +75,7 @@ export function Hero() {
                   Get Started <ArrowRight className="size-4" />
                 </button>
               </div>
+
             </div>
           </div>
 
