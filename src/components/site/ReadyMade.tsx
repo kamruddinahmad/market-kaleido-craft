@@ -173,9 +173,7 @@ export function ReadyMade() {
 
         {/* Ready-Made Strategies — Marketplace style */}
         <div className="relative mt-28 overflow-hidden">
-          <div className="absolute inset-0 -z-10">
-            <div className="absolute right-1/4 top-1/2 size-[520px] -translate-y-1/2 rounded-full bg-teal/15 blur-[140px]" />
-          </div>
+
 
           <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
             {/* LEFT: heading + features */}
