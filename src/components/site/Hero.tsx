@@ -91,6 +91,11 @@ export function Hero() {
               height={1024}
               className="relative h-auto w-full max-w-[520px] mx-auto object-contain animate-float drop-shadow-[0_0_60px_oklch(0.78_0.14_185/0.5)]"
             />
+            <img
+              src="/algoai-logo-light.png"
+              alt="AlgoAI by SMC"
+              className="absolute left-1/2 top-4 -translate-x-1/2 h-12 md:h-16 w-auto drop-shadow-[0_4px_20px_oklch(0.78_0.14_185/0.6)]"
+            />
 
             {/* Floating stat cards */}
             <div className="glass absolute left-0 top-10 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block">
