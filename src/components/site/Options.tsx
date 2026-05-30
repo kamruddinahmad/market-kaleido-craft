@@ -21,104 +21,72 @@ const features = [
 type Strategy = {
   label: string;
   maxProfit: string;
-  path: string;
-  area: string;
+  points: [number, number][];
   greeks: { k: string; v: string }[];
 };
 
+// viewBox 0 0 400 200, zero line at y=100. y<100 = profit, y>100 = loss.
 const strategies: Record<string, Strategy> = {
-  "iron-condor": {
-    label: "Iron Condor",
-    maxProfit: "Max Profit ₹4,250",
-    path: "M0 160 L80 160 L140 60 L260 60 L320 160 L400 160",
-    area: "M0 160 L80 160 L140 60 L260 60 L320 160 L400 160 L400 200 L0 200 Z",
-    greeks: [
-      { k: "Delta", v: "+0.02" },
-      { k: "Theta", v: "+18.4" },
-      { k: "Vega", v: "−6.1" },
-    ],
-  },
-  straddle: {
-    label: "Long Straddle",
-    maxProfit: "Max Profit Unlimited",
-    path: "M0 20 L200 160 L400 20",
-    area: "M0 20 L200 160 L400 20 L400 200 L0 200 Z",
-    greeks: [
-      { k: "Delta", v: "0.00" },
-      { k: "Theta", v: "−22.5" },
-      { k: "Vega", v: "+14.8" },
-    ],
-  },
-  strangle: {
-    label: "Long Strangle",
-    maxProfit: "Max Profit Unlimited",
-    path: "M0 40 L150 160 L250 160 L400 40",
-    area: "M0 40 L150 160 L250 160 L400 40 L400 200 L0 200 Z",
-    greeks: [
-      { k: "Delta", v: "+0.01" },
-      { k: "Theta", v: "−18.2" },
-      { k: "Vega", v: "+12.4" },
-    ],
-  },
   "bull-call": {
     label: "Bull Call Spread",
-    maxProfit: "Max Profit ₹3,100",
-    path: "M0 160 L140 160 L260 60 L400 60",
-    area: "M0 160 L140 160 L260 60 L400 60 L400 200 L0 200 Z",
+    maxProfit: "Max Profit ₹8,622",
+    points: [[0, 160], [140, 160], [260, 40], [400, 40]],
     greeks: [
       { k: "Delta", v: "+0.35" },
       { k: "Theta", v: "−4.2" },
       { k: "Vega", v: "+3.6" },
     ],
   },
+  "iron-butterfly": {
+    label: "Long Iron Butterfly",
+    maxProfit: "Max Profit ₹8,089.25",
+    points: [[0, 160], [80, 160], [140, 100], [200, 40], [260, 100], [320, 160], [400, 160]],
+    greeks: [
+      { k: "Delta", v: "0.00" },
+      { k: "Theta", v: "−6.8" },
+      { k: "Vega", v: "+9.2" },
+    ],
+  },
   "bear-put": {
     label: "Bear Put Spread",
-    maxProfit: "Max Profit ₹2,850",
-    path: "M0 60 L140 60 L260 160 L400 160",
-    area: "M0 60 L140 60 L260 160 L400 160 L400 200 L0 200 Z",
+    maxProfit: "Max Profit ₹12,402",
+    points: [[0, 40], [140, 40], [260, 160], [400, 160]],
     greeks: [
       { k: "Delta", v: "−0.32" },
       { k: "Theta", v: "−3.8" },
       { k: "Vega", v: "+3.2" },
     ],
   },
-  butterfly: {
-    label: "Butterfly Spread",
-    maxProfit: "Max Profit ₹3,750",
-    path: "M0 160 L120 160 L200 40 L280 160 L400 160",
-    area: "M0 160 L120 160 L200 40 L280 160 L400 160 L400 200 L0 200 Z",
+  "iron-condor": {
+    label: "Long Iron Condor",
+    maxProfit: "Max Profit ₹37,332",
+    points: [[0, 160], [60, 160], [140, 40], [260, 40], [340, 160], [400, 160]],
     greeks: [
-      { k: "Delta", v: "0.00" },
-      { k: "Theta", v: "+12.6" },
-      { k: "Vega", v: "−8.4" },
+      { k: "Delta", v: "+0.02" },
+      { k: "Theta", v: "−12.4" },
+      { k: "Vega", v: "+8.6" },
     ],
   },
-  "covered-call": {
-    label: "Covered Call",
-    maxProfit: "Max Profit ₹2,400",
-    path: "M0 180 L200 80 L400 60",
-    area: "M0 180 L200 80 L400 60 L400 200 L0 200 Z",
-    greeks: [
-      { k: "Delta", v: "+0.55" },
-      { k: "Theta", v: "+6.8" },
-      { k: "Vega", v: "−2.4" },
-    ],
-  },
-  "iron-butterfly": {
-    label: "Iron Butterfly",
-    maxProfit: "Max Profit ₹5,100",
-    path: "M0 160 L160 160 L200 40 L240 160 L400 160",
-    area: "M0 160 L160 160 L200 40 L240 160 L400 160 L400 200 L0 200 Z",
+  "short-straddle": {
+    label: "Short Straddle",
+    maxProfit: "Max Profit ₹20,884",
+    points: [[0, 185], [200, 40], [400, 185]],
     greeks: [
       { k: "Delta", v: "0.00" },
-      { k: "Theta", v: "+24.1" },
-      { k: "Vega", v: "−9.8" },
+      { k: "Theta", v: "+22.5" },
+      { k: "Vega", v: "−14.8" },
     ],
   },
 };
 
+const toLinePath = (pts: [number, number][]) =>
+  pts.map((p, i) => `${i === 0 ? "M" : "L"}${p[0]} ${p[1]}`).join(" ");
+
+const toClosedPath = (pts: [number, number][]) =>
+  `${toLinePath(pts)} L${pts[pts.length - 1][0]} 100 L${pts[0][0]} 100 Z`;
+
 export function Options() {
-  const [selected, setSelected] = useState<string>("iron-condor");
+  const [selected, setSelected] = useState<string>("bull-call");
   const [paused, setPaused] = useState(false);
   const strat = strategies[selected];
   const keys = useRef(Object.keys(strategies));
@@ -167,22 +135,31 @@ export function Options() {
 
               <svg viewBox="0 0 400 200" className="mt-4 w-full">
                 <defs>
-                  <linearGradient id="payoffGrad" x1="0" x2="0" y1="0" y2="1">
-                    <stop offset="0%" stopColor="oklch(0.78 0.14 195)" stopOpacity="0.5" />
-                    <stop offset="100%" stopColor="oklch(0.78 0.14 195)" stopOpacity="0" />
-                  </linearGradient>
+                  <clipPath id="profitClip">
+                    <rect x="0" y="0" width="400" height="100" />
+                  </clipPath>
+                  <clipPath id="lossClip">
+                    <rect x="0" y="100" width="400" height="100" />
+                  </clipPath>
                 </defs>
-                {[40, 80, 120, 160].map((y) => (
-                  <line key={y} x1="0" x2="400" y1={y} y2={y} stroke="currentColor" strokeOpacity="0.08" />
+                {/* grid */}
+                {[20, 60, 140, 180].map((y) => (
+                  <line key={y} x1="0" x2="400" y1={y} y2={y} stroke="currentColor" strokeOpacity="0.06" />
                 ))}
-                <line x1="0" x2="400" y1="120" y2="120" stroke="oklch(0.72 0.02 255)" strokeOpacity="0.4" strokeDasharray="4 4" />
-                <path d={strat.area} fill="url(#payoffGrad)" />
-                <path
-                  d={strat.path}
-                  fill="none"
-                  stroke="oklch(0.78 0.14 195)"
-                  strokeWidth="2.5"
-                />
+                {/* axes */}
+                <line x1="20" x2="20" y1="10" y2="190" stroke="oklch(0.72 0.02 255)" strokeOpacity="0.5" />
+                <line x1="0" x2="400" y1="100" y2="100" stroke="oklch(0.72 0.02 255)" strokeOpacity="0.6" />
+                {/* profit fill (green) */}
+                <path d={toClosedPath(strat.points)} fill="oklch(0.75 0.18 145)" fillOpacity="0.32" clipPath="url(#profitClip)" />
+                {/* loss fill (red) */}
+                <path d={toClosedPath(strat.points)} fill="oklch(0.65 0.22 25)" fillOpacity="0.32" clipPath="url(#lossClip)" />
+                {/* profit line (green segment) */}
+                <path d={toLinePath(strat.points)} fill="none" stroke="oklch(0.78 0.20 145)" strokeWidth="2.5" clipPath="url(#profitClip)" />
+                {/* loss line (red segment) */}
+                <path d={toLinePath(strat.points)} fill="none" stroke="oklch(0.65 0.24 25)" strokeWidth="2.5" clipPath="url(#lossClip)" />
+                {/* labels */}
+                <text x="26" y="20" fill="currentColor" fillOpacity="0.6" fontSize="10">Profit</text>
+                <text x="26" y="194" fill="currentColor" fillOpacity="0.6" fontSize="10">Loss</text>
               </svg>
               <div className="mt-4 grid grid-cols-3 gap-3 text-xs">
                 {strat.greeks.map((g) => (
