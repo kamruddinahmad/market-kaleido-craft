@@ -63,7 +63,7 @@ export function Hero() {
           {/* Form */}
           <div className="mt-8 max-w-md mx-auto lg:mx-0">
             <div className="relative">
-              <div className="relative flex items-center gap-2 rounded-2xl border border-border bg-white pl-4 pr-2 py-1 transition-colors focus-within:border-teal">
+              <div className="relative flex items-center gap-2 rounded-2xl border border-border bg-white pl-4 pr-2 py-1 shadow-[0_10px_30px_-5px_oklch(0.78_0.14_185/0.4)] transition-all focus-within:border-teal focus-within:shadow-[0_15px_40px_-5px_oklch(0.78_0.14_185/0.6)]">
                 <input
                   type="tel"
                   placeholder="Enter your mobile number"
