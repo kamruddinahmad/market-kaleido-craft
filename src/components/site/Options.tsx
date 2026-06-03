@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { LineChart, Activity, Calculator, History, Table2, Library } from "lucide-react";
+import { LineChart, Activity, Calculator } from "lucide-react";
 
 import {
   Select,
@@ -13,9 +13,6 @@ const features = [
   { icon: LineChart, title: "Live Option Chain" },
   { icon: Activity, title: "Interactive Payoff Graphs" },
   { icon: Calculator, title: "Greeks Analysis" },
-  { icon: History, title: "Strategy Backtesting" },
-  { icon: Table2, title: "Payoff Tables" },
-  { icon: Library, title: "30+ Ready-Made Strategies" },
 ];
 
 type Strategy = {
