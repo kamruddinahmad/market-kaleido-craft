@@ -1,4 +1,4 @@
-import { Logo } from "./Logo";
+import smcLogo from "@/assets/smc-logo.svg.asset.json";
 
 export function Footer() {
   return (
@@ -6,8 +6,9 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="col-span-2">
-            <Logo className="h-7" />
+            <img src={smcLogo.url} alt="SMC" className="h-12 w-auto" />
             <p className="mt-4 max-w-xs text-sm text-muted-foreground">
+
               AI-powered automated trading inside SMC ACE 2.0. Built for modern Indian traders.
             </p>
           </div>
