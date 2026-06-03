@@ -128,9 +128,6 @@ function StrategyCard({ s }: { s: (typeof STRATEGIES)[number] }) {
         ))}
       </div>
 
-      <button className="mt-3 w-full rounded-lg border border-teal/40 bg-teal/10 py-2 text-[11px] font-semibold text-teal transition-colors hover:bg-teal/20">
-        VIEW DETAILS
-      </button>
     </div>
   );
 }
