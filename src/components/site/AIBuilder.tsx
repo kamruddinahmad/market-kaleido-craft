@@ -272,18 +272,6 @@ export function AIBuilder() {
             )}
           </div>
 
-          {/* Floating badges */}
-          <div className="glass absolute -left-6 -top-6 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block">
-            <div className="text-muted-foreground">Backtest CAGR</div>
-            <div className="text-lg font-bold text-teal">{result?.backtest.cagr ?? "+38.4%"}</div>
-          </div>
-          <div
-            className="glass absolute -right-4 bottom-8 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block"
-            style={{ animationDelay: "1.5s" }}
-          >
-            <div className="text-muted-foreground">Win Rate</div>
-            <div className="text-lg font-bold text-violet">{result?.backtest.winRate ?? "72%"}</div>
-          </div>
         </div>
       </div>
     </section>
