@@ -179,7 +179,7 @@ export function ReadyMade() {
               <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal">
                 <ShieldCheck className="size-3.5" /> Ready-Made Strategies
               </span>
-              <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+              <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
                 Build less.<br />
                 <span className="text-gradient-brand">Trade smarter.</span><br />
                 Automate instantly.
