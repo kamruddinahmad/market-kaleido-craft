@@ -170,7 +170,7 @@ export function Options() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal">Options Platform</span>
+            <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)]">Options Platform</span>
             <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
               Advanced <span className="text-gradient-brand">Options Trading Platform</span>
             </h2>
