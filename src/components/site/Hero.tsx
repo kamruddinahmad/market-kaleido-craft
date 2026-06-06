@@ -56,7 +56,7 @@ export function Hero() {
             />
           </h1>
 
-          <p className="mt-5 text-lg font-medium text-muted-foreground md:text-xl">
+          <p className="mt-5 text-sm font-medium text-muted-foreground">
             The New Intelligence Behind Every Trade
           </p>
 
