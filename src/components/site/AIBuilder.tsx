@@ -121,8 +121,8 @@ export function AIBuilder() {
           <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
             Build Your Own <span className="text-gradient-brand">AI Trading Formula</span>
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">Your Strategy. Your Rules. Powered by AI.</p>
-          <p className="mt-6 text-muted-foreground">
+          <p className="mt-4 text-sm text-muted-foreground">Your Strategy. Your Rules. Powered by AI.</p>
+          <p className="mt-6 text-sm text-muted-foreground">
             Transform trading ideas into automated strategies using the power of AI. Simply describe your setup,
             define your conditions, and let AlgoAI build and automate your strategy instantly.
           </p>
