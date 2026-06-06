@@ -17,7 +17,7 @@ export function Features() {
       <div className="absolute inset-0 -z-10 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]" />
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal">SMC — The Edge in every market condition</span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)]">SMC — The Edge in every market condition</span>
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
             One Powerful Ecosystem for <span className="text-gradient-brand">Smarter Trading</span>
           </h2>
