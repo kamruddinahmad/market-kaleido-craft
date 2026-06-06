@@ -13,7 +13,7 @@ export function Steps() {
           <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
             Launch your algo in <span className="text-lilac">just four steps.</span>
           </h2>
-          <p className="mt-5 text-muted-foreground">Build &amp; optimise your own strategy until it's perfect.</p>
+          <p className="mt-5 text-sm text-muted-foreground">Build &amp; optimise your own strategy until it's perfect.</p>
         </div>
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((s, i) => (

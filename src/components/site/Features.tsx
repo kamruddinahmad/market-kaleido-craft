@@ -21,7 +21,7 @@ export function Features() {
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
             One Powerful Ecosystem for <span className="text-gradient-brand">Smarter Trading</span>
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-sm text-muted-foreground">
             Access Ready-Made Trading Strategies, Build AI-Powered Custom Algos, Explore the Advanced Options Platform,
             Backtest Ideas, and Practice Risk-Free — All in One Intelligent Trading Ecosystem.
           </p>

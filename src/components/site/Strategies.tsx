@@ -17,7 +17,7 @@ export function Strategies() {
           <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
             Built by experts. <span className="text-lilac">Validated for results.</span>
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-sm text-muted-foreground">
             Get access to top strategies curated by SEBI-registered RAs. Each strategy is backtested with clear past returns, drawdowns, and risk metrics.
           </p>
         </div>
