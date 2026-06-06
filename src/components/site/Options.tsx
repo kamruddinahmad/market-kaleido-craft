@@ -174,8 +174,8 @@ export function Options() {
             <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
               Advanced <span className="text-gradient-brand">Options Trading Platform</span>
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground">Analyse Risk. Visualize Profit. Trade Smarter.</p>
-            <p className="mt-6 text-muted-foreground">
+            <p className="mt-4 text-sm text-muted-foreground">Analyse Risk. Visualize Profit. Trade Smarter.</p>
+            <p className="mt-6 text-sm text-muted-foreground">
               Explore 30+ ready-made options strategies and make informed trading decisions with greater confidence and clarity.
             </p>
 
