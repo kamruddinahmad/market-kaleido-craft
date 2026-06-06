@@ -62,7 +62,7 @@ export function Walkthrough() {
           <div className="absolute -left-20 -bottom-20 size-80 rounded-full bg-teal/20 blur-[100px]" />
           <div className="relative grid grid-cols-1 items-center gap-8 md:grid-cols-2">
             <div>
-              <h3 className="text-3xl font-bold tracking-tight md:text-4xl">
+              <h3 className="text-4xl font-bold tracking-tight md:text-5xl">
                 Ready to <span className="text-gradient-brand">Automate Your Trading?</span>
               </h3>
               <ul className="mt-5 space-y-2 text-sm text-muted-foreground">
