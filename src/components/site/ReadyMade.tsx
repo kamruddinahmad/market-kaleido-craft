@@ -8,7 +8,7 @@ import {
   ChevronLeft,
   ChevronRight,
   BadgeCheck,
-  ShieldCheck,
+  
 } from "lucide-react";
 
 const highlights = [
