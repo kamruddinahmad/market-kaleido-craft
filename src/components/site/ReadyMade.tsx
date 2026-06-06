@@ -145,7 +145,7 @@ export function ReadyMade() {
           <h3 className="text-4xl font-bold tracking-tight md:text-5xl">
             <span className="text-gradient-brand">Get, Set, Algo</span>
           </h3>
-          <p className="mt-4 text-muted-foreground">Start your automated trading journey</p>
+          <p className="mt-4 text-sm text-muted-foreground">Start your automated trading journey</p>
         </div>
 
         <div className="relative mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -184,7 +184,7 @@ export function ReadyMade() {
                 <span className="text-gradient-brand">Trade smarter.</span><br />
                 Automate instantly.
               </h2>
-              <p className="mt-5 max-w-md text-muted-foreground">
+              <p className="mt-5 max-w-md text-sm text-muted-foreground">
                 A curated marketplace of expert-built, battle-tested strategies — ready to deploy in one click.
               </p>
 

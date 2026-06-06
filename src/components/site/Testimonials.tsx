@@ -16,7 +16,7 @@ export function Testimonials() {
           <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
             Trusted by <span className="text-gradient-brand">Modern Traders</span>
           </h2>
-          <p className="mt-5 text-muted-foreground">
+          <p className="mt-5 text-sm text-muted-foreground">
             See how traders are transforming their trading experience with AlgoAI.
           </p>
         </div>
