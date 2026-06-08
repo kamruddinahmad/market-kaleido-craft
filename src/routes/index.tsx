@@ -6,6 +6,7 @@ import { ReadyMade } from "@/components/site/ReadyMade";
 import { AIBuilder } from "@/components/site/AIBuilder";
 import { Options } from "@/components/site/Options";
 import { Walkthrough } from "@/components/site/Walkthrough";
+import { TradingView } from "@/components/site/TradingView";
 import { Testimonials } from "@/components/site/Testimonials";
 import { FAQs } from "@/components/site/FAQs";
 import { Footer } from "@/components/site/Footer";
