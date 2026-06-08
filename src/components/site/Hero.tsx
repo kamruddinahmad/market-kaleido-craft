@@ -57,7 +57,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-5 text-sm font-medium text-muted-foreground">
-            The New Intelligence Behind Every Trade
+            Experience the future of automated trading with AI-powered strategy builder, expert-built strategies, real-time execution, and intelligent risk management — all inside the SMC ACE 2.0 ecosystem.
           </p>
 
           {/* Form */}
