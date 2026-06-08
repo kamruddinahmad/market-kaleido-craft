@@ -36,6 +36,7 @@ function Index() {
       <ReadyMade />
       <AIBuilder />
       <Options />
+      <TradingView />
       <Walkthrough />
       <Testimonials />
       <FAQs />
