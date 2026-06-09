@@ -142,7 +142,8 @@ export function ReadyMade() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Steps section (kept) */}
         <div className="mx-auto max-w-3xl text-center">
-          <h3 className="text-4xl font-bold tracking-tight md:text-5xl">
+          <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)]">Get Started</span>
+          <h3 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
             <span className="text-gradient-brand">Get, Set, Algo</span>
           </h3>
           <p className="mt-4 text-sm text-muted-foreground">Start your automated trading journey</p>
