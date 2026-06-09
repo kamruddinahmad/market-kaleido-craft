@@ -118,11 +118,25 @@ function PhoneMockup() {
 
 function FloatCard({ title, Icon, align }: { title: string; Icon: typeof Bot; align: "left" | "right" }) {
   return (
-    <div className={`glass-strong group flex items-center gap-3 rounded-2xl px-4 py-3 transition-all hover:-translate-y-1 hover:border-teal/50 ${align === "left" ? "lg:-mr-6" : "lg:-ml-6"}`}>
+    <div className={`glass-strong group relative flex items-center gap-3 rounded-2xl px-4 py-3 transition-all hover:-translate-y-1 hover:border-teal/50 ${align === "left" ? "lg:-mr-6" : "lg:-ml-6"}`}>
       <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-teal/20 text-teal">
         <Icon className="size-4" />
       </div>
       <div className="text-sm font-semibold leading-tight">{title}</div>
+      {/* Connector arrow to phone */}
+      <div
+        className={`pointer-events-none absolute top-1/2 hidden h-px w-16 -translate-y-1/2 lg:block ${
+          align === "left"
+            ? "left-full bg-gradient-to-r from-teal/60 to-transparent"
+            : "right-full bg-gradient-to-l from-teal/60 to-transparent"
+        }`}
+      >
+        <span
+          className={`absolute top-1/2 size-2 -translate-y-1/2 rotate-45 border-teal/70 ${
+            align === "left" ? "right-0 border-r border-t" : "left-0 border-b border-l"
+          }`}
+        />
+      </div>
     </div>
   );
 }
