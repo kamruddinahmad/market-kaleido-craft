@@ -111,20 +111,7 @@ export function Features() {
               ))}
             </div>
 
-            {/* Right: phone frame with inner screen */}
-            <div className="relative flex justify-center">
-              <div className="relative w-[280px] sm:w-[320px]">
-                {/* Inner screen masked to phone shape */}
-                <div className="absolute left-[6.5%] top-[2.2%] h-[95.6%] w-[87%] overflow-hidden rounded-[12%/6%]">
-                  <PhoneScreen />
-                </div>
-                <img
-                  src={iphoneFrame.url}
-                  alt="AlgoAI mobile trading app on iPhone"
-                  className="relative w-full drop-shadow-[0_40px_60px_oklch(0.55_0.18_250/0.35)]"
-                />
-              </div>
-            </div>
+            {/* Right: phone frame with inner screen — hidden */}
           </div>
         </div>
       </div>
