@@ -66,10 +66,9 @@ const STRATEGIES = [
 ];
 
 const steps = [
-  { n: "01", title: "Choose or Create a Strategy", desc: "Browse the library or describe your own setup." },
-  { n: "02", title: "Backtest & Validate", desc: "Run it through practice mode with real market data." },
-  { n: "03", title: "Monitor Performance", desc: "Track P&L, drawdowns and signals in real time." },
-  { n: "04", title: "Go Live in Real Market", desc: "Deploy with one tap — pause or modify anytime." },
+  { n: "01", title: "Get", desc: "Choose or Create a Strategy" },
+  { n: "02", title: "Set", desc: "Backtest & Validate" },
+  { n: "03", title: "Algo Go Live", desc: "Go Live in Real Market" },
 ];
 
 function StrategyCard({ s }: { s: (typeof STRATEGIES)[number] }) {
