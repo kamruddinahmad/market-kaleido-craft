@@ -1,5 +1,5 @@
 import { Bot, Layers, LineChart, Link2, Bell, Home, BarChart3, Settings, TrendingUp, Wallet } from "lucide-react";
-import iphoneFrame from "@/assets/iphone-frame.png.asset.json";
+import iphoneFrame from "@/assets/iphone-frame-tilt.png.asset.json";
 
 const benefits = [
   { title: "Build Algo Strategies with AI", icon: Bot },
@@ -111,10 +111,30 @@ export function Features() {
               ))}
             </div>
 
-            {/* Right: app screen only (phone frame hidden) */}
+            {/* Right: tilted phone frame with app screen fitted inside */}
             <div className="relative flex justify-center">
-              <div className="relative w-[260px] sm:w-[300px] overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-2xl" style={{ aspectRatio: "9 / 19" }}>
-                <PhoneScreen />
+              <div className="relative w-[320px] sm:w-[380px] lg:w-[420px]" style={{ aspectRatio: "720 / 1700" }}>
+                {/* Screen content positioned to match the tilted frame's screen area */}
+                <div
+                  className="absolute overflow-hidden bg-white"
+                  style={{
+                    top: "4.5%",
+                    bottom: "5.5%",
+                    left: "10.5%",
+                    right: "14.5%",
+                    transform: "rotate(-3deg) skewY(1.2deg)",
+                    transformOrigin: "center",
+                    borderRadius: "10% / 4%",
+                  }}
+                >
+                  <PhoneScreen />
+                </div>
+                <img
+                  src={iphoneFrame.url}
+                  alt="AlgoAI mobile app"
+                  className="pointer-events-none relative z-10 h-full w-full select-none"
+                  draggable={false}
+                />
               </div>
             </div>
           </div>
