@@ -148,7 +148,7 @@ export function ReadyMade() {
           <p className="mt-4 text-sm text-muted-foreground">Start your automated trading journey</p>
         </div>
 
-        <div className="relative mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+        <div className="relative mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {steps.map((s, i) => (
             <div key={s.n} className="group relative">
               <div className="glass relative rounded-3xl p-7 transition-all hover:-translate-y-1 hover:glow">
