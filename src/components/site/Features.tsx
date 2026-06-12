@@ -12,12 +12,24 @@ const rightCards = [
 
 function PhoneMockup() {
   return (
-    <div className="relative mx-auto w-[260px] sm:w-[280px]">
-      {/* Phone frame */}
-      <div className="relative rounded-[2.5rem] border-[10px] border-foreground/90 bg-background shadow-[0_30px_80px_-20px_oklch(0.55_0.18_250/0.5)]">
-        {/* Notch */}
-        <div className="absolute left-1/2 top-2 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-foreground/90" />
-        <div className="overflow-hidden rounded-[2rem] bg-gradient-to-b from-background to-background/60">
+    <div className="relative mx-auto w-[280px] sm:w-[300px]">
+      {/* Outer titanium rim */}
+      <div className="relative rounded-[3rem] bg-gradient-to-b from-zinc-300 via-zinc-500 to-zinc-700 p-[3px] shadow-[0_40px_90px_-20px_oklch(0.55_0.18_250/0.55),0_0_0_1px_rgba(255,255,255,0.05)]">
+        {/* Inner titanium bezel */}
+        <div className="relative rounded-[2.85rem] bg-gradient-to-br from-zinc-800 via-zinc-900 to-black p-[6px]">
+          {/* Side buttons */}
+          <span className="absolute -left-[5px] top-24 h-8 w-[3px] rounded-l-sm bg-gradient-to-r from-zinc-600 to-zinc-400" />
+          <span className="absolute -left-[5px] top-36 h-12 w-[3px] rounded-l-sm bg-gradient-to-r from-zinc-600 to-zinc-400" />
+          <span className="absolute -left-[5px] top-52 h-12 w-[3px] rounded-l-sm bg-gradient-to-r from-zinc-600 to-zinc-400" />
+          <span className="absolute -right-[5px] top-40 h-16 w-[3px] rounded-r-sm bg-gradient-to-l from-zinc-600 to-zinc-400" />
+
+          {/* Screen */}
+          <div className="relative overflow-hidden rounded-[2.4rem] bg-gradient-to-b from-background to-background/60">
+            {/* Dynamic Island */}
+            <div className="absolute left-1/2 top-2 z-20 flex h-7 w-28 -translate-x-1/2 items-center justify-end gap-1.5 rounded-full bg-black px-3">
+              <span className="size-1.5 rounded-full bg-zinc-700" />
+              <span className="size-2 rounded-full bg-zinc-800 ring-1 ring-zinc-700/60" />
+            </div>
           {/* Status bar */}
           <div className="flex items-center justify-between px-5 pt-3 pb-1 text-[10px] text-muted-foreground">
             <span>4:22</span>
@@ -109,6 +121,7 @@ function PhoneMockup() {
             <div className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-teal">
               <span className="text-[10px] font-bold text-primary-foreground">→</span>
             </div>
+          </div>
           </div>
         </div>
       </div>
