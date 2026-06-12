@@ -123,7 +123,6 @@ function PhoneMockup() {
             </div>
           </div>
           </div>
-          </div>
         </div>
       </div>
     </div>
