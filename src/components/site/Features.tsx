@@ -122,6 +122,7 @@ function PhoneMockup() {
               <span className="text-[10px] font-bold text-primary-foreground">→</span>
             </div>
           </div>
+          </div>
         </div>
       </div>
     </div>
