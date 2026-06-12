@@ -1,5 +1,5 @@
 import { Bot, Layers, LineChart, Link2 } from "lucide-react";
-import iphoneFrame from "@/assets/iphone-frame.jpg.asset.json";
+import iphoneFrame from "@/assets/iphone-frame.png.asset.json";
 
 const benefits = [
   { title: "Build Algo Strategies with AI", icon: Bot },
