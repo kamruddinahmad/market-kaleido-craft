@@ -16,8 +16,8 @@ function FloatCard({ title, Icon }: { title: string; Icon: typeof Bot }) {
       </div>
       <div className="text-sm font-semibold leading-tight">{title}</div>
       {/* Arrow flowing out from phone toward this card (visible on lg+) */}
-      <div className="pointer-events-none absolute left-full top-1/2 hidden h-px w-12 -translate-y-1/2 bg-gradient-to-l from-teal/70 to-transparent lg:block">
-        <span className="absolute left-0 top-1/2 size-2 -translate-y-1/2 rotate-45 border-b border-l border-teal/80" />
+      <div className="pointer-events-none absolute left-full top-1/2 hidden h-[3px] w-32 -translate-y-1/2 rounded-full bg-gradient-to-l from-teal via-teal/80 to-transparent shadow-[0_0_12px_oklch(0.78_0.14_185/0.8),0_0_24px_oklch(0.78_0.14_185/0.5)] lg:block xl:w-40">
+        <span className="absolute left-0 top-1/2 size-3 -translate-y-1/2 rotate-45 border-b-[3px] border-l-[3px] border-teal shadow-[0_0_10px_oklch(0.78_0.14_185/0.8)]" />
       </div>
     </div>
   );
