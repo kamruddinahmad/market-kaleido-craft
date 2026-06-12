@@ -5,7 +5,13 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > window.innerHeight * 0.85);
+    const onScroll = () => {
+      const second = document.getElementById("features");
+      const threshold = second
+        ? second.getBoundingClientRect().top + window.scrollY - 80
+        : window.innerHeight * 0.85;
+      setScrolled(window.scrollY >= threshold);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
