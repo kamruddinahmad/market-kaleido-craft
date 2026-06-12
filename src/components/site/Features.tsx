@@ -12,7 +12,7 @@ const rightCards = [
 
 function PhoneMockup() {
   return (
-    <div className="relative mx-auto w-[280px] sm:w-[300px]">
+    <div className="relative mx-auto w-[280px] rotate-[-8deg] transition-transform duration-500 hover:rotate-0 sm:w-[300px]">
       {/* Outer titanium rim */}
       <div className="relative rounded-[3rem] bg-gradient-to-b from-zinc-300 via-zinc-500 to-zinc-700 p-[3px] shadow-[0_40px_90px_-20px_oklch(0.55_0.18_250/0.55),0_0_0_1px_rgba(255,255,255,0.05)]">
         {/* Inner titanium bezel */}
