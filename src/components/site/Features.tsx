@@ -24,7 +24,7 @@ function PhoneMockup() {
           <span className="absolute -right-[5px] top-40 h-16 w-[3px] rounded-r-sm bg-gradient-to-l from-zinc-600 to-zinc-400" />
 
           {/* Screen */}
-          <div className="relative overflow-hidden rounded-[2.4rem] bg-gradient-to-b from-background to-background/60">
+          <div className="relative overflow-hidden rounded-[2.4rem] bg-gradient-to-b from-white to-zinc-50 text-zinc-900">
             {/* Dynamic Island */}
             <div className="absolute left-1/2 top-2 z-20 flex h-7 w-28 -translate-x-1/2 items-center justify-end gap-1.5 rounded-full bg-black px-3">
               <span className="size-1.5 rounded-full bg-zinc-700" />
