@@ -111,7 +111,12 @@ export function Features() {
               ))}
             </div>
 
-            {/* Right: phone frame with inner screen — hidden */}
+            {/* Right: app screen only (phone frame hidden) */}
+            <div className="relative flex justify-center">
+              <div className="relative w-[260px] sm:w-[300px] overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-2xl" style={{ aspectRatio: "9 / 19" }}>
+                <PhoneScreen />
+              </div>
+            </div>
           </div>
         </div>
       </div>
