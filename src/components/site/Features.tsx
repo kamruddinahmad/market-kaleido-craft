@@ -21,49 +21,49 @@ function BenefitCard({ title, Icon }: { title: string; Icon: typeof Bot }) {
 
 function PhoneScreen() {
   return (
-    <div className="flex h-full w-full flex-col bg-gradient-to-b from-[#0b1020] via-[#0a0f1f] to-[#070a16] text-white">
+    <div className="flex h-full w-full flex-col bg-gradient-to-b from-white via-slate-50 to-slate-100 text-slate-900">
       {/* Status bar */}
-      <div className="flex items-center justify-between px-5 pt-2 text-[9px] font-semibold">
+      <div className="flex items-center justify-between px-5 pt-2 text-[9px] font-semibold text-slate-700">
         <span>9:41</span>
         <span className="flex items-center gap-1 opacity-80">●●●● 5G</span>
       </div>
       {/* App header */}
       <div className="flex items-center justify-between px-4 pt-3">
         <div>
-          <div className="text-[10px] text-white/60">Good morning</div>
-          <div className="text-sm font-bold">AlgoAI</div>
+          <div className="text-[10px] text-slate-500">Good morning</div>
+          <div className="text-sm font-bold text-slate-900">AlgoAI</div>
         </div>
-        <div className="flex size-7 items-center justify-center rounded-full bg-white/10">
-          <Bell className="size-3.5" />
+        <div className="flex size-7 items-center justify-center rounded-full bg-slate-900/5 ring-1 ring-slate-900/10">
+          <Bell className="size-3.5 text-slate-700" />
         </div>
       </div>
 
       {/* Portfolio card */}
-      <div className="mx-3 mt-3 rounded-2xl bg-gradient-to-br from-primary/40 via-violet/30 to-teal/30 p-3 shadow-lg">
-        <div className="text-[9px] uppercase tracking-wider text-white/70">Portfolio</div>
+      <div className="mx-3 mt-3 rounded-2xl bg-gradient-to-br from-primary via-violet to-teal p-3 text-white shadow-lg">
+        <div className="text-[9px] uppercase tracking-wider text-white/80">Portfolio</div>
         <div className="mt-1 text-xl font-bold">₹4,82,650</div>
-        <div className="mt-0.5 flex items-center gap-1 text-[10px] text-teal">
+        <div className="mt-0.5 flex items-center gap-1 text-[10px] text-white">
           <TrendingUp className="size-3" /> +₹12,420 (2.64%)
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="mx-3 mt-3 flex gap-1 rounded-full bg-white/5 p-0.5 text-[10px]">
-        <div className="flex-1 rounded-full bg-white/15 py-1 text-center font-semibold">Live</div>
-        <div className="flex-1 py-1 text-center text-white/60">Practice</div>
+      <div className="mx-3 mt-3 flex gap-1 rounded-full bg-slate-900/5 p-0.5 text-[10px] ring-1 ring-slate-900/10">
+        <div className="flex-1 rounded-full bg-white py-1 text-center font-semibold text-slate-900 shadow-sm">Live</div>
+        <div className="flex-1 py-1 text-center text-slate-500">Practice</div>
       </div>
 
       {/* Strategy cards */}
       <div className="mx-3 mt-3 space-y-2">
         {[
-          { name: "Nifty SMC Scalper", pnl: "+8.2%", color: "text-teal" },
-          { name: "BankNifty Trend", pnl: "+3.1%", color: "text-teal" },
-          { name: "Options Hedger", pnl: "-0.7%", color: "text-rose-400" },
+          { name: "Nifty SMC Scalper", pnl: "+8.2%", color: "text-emerald-600" },
+          { name: "BankNifty Trend", pnl: "+3.1%", color: "text-emerald-600" },
+          { name: "Options Hedger", pnl: "-0.7%", color: "text-rose-500" },
         ].map((s) => (
-          <div key={s.name} className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-3 py-2">
+          <div key={s.name} className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm">
             <div>
-              <div className="text-[11px] font-semibold">{s.name}</div>
-              <div className="text-[9px] text-white/50">Active · 1m ago</div>
+              <div className="text-[11px] font-semibold text-slate-900">{s.name}</div>
+              <div className="text-[9px] text-slate-500">Active · 1m ago</div>
             </div>
             <div className={`text-[11px] font-bold ${s.color}`}>{s.pnl}</div>
           </div>
@@ -73,9 +73,9 @@ function PhoneScreen() {
       <div className="flex-1" />
 
       {/* Bottom nav */}
-      <div className="mx-3 mb-4 flex items-center justify-around rounded-2xl border border-white/10 bg-white/5 py-2 backdrop-blur">
+      <div className="mx-3 mb-4 flex items-center justify-around rounded-2xl border border-slate-200 bg-white/80 py-2 backdrop-blur">
         {[Home, BarChart3, Wallet, Settings].map((I, i) => (
-          <div key={i} className={`flex size-7 items-center justify-center rounded-lg ${i === 0 ? "bg-gradient-to-br from-primary to-teal text-white" : "text-white/60"}`}>
+          <div key={i} className={`flex size-7 items-center justify-center rounded-lg ${i === 0 ? "bg-gradient-to-br from-primary to-teal text-white" : "text-slate-400"}`}>
             <I className="size-3.5" />
           </div>
         ))}
