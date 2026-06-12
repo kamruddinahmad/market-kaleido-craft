@@ -24,14 +24,14 @@ function PhoneMockup() {
           <span className="absolute -right-[5px] top-40 h-16 w-[3px] rounded-r-sm bg-gradient-to-l from-zinc-600 to-zinc-400" />
 
           {/* Screen */}
-          <div className="relative overflow-hidden rounded-[2.4rem] bg-gradient-to-b from-background to-background/60">
+          <div className="relative overflow-hidden rounded-[2.4rem] bg-gradient-to-b from-white to-zinc-50 text-zinc-900">
             {/* Dynamic Island */}
             <div className="absolute left-1/2 top-2 z-20 flex h-7 w-28 -translate-x-1/2 items-center justify-end gap-1.5 rounded-full bg-black px-3">
               <span className="size-1.5 rounded-full bg-zinc-700" />
               <span className="size-2 rounded-full bg-zinc-800 ring-1 ring-zinc-700/60" />
             </div>
           {/* Status bar */}
-          <div className="flex items-center justify-between px-5 pt-3 pb-1 text-[10px] text-muted-foreground">
+          <div className="flex items-center justify-between px-5 pt-3 pb-1 text-[10px] text-zinc-500">
             <span>4:22</span>
             <span className="flex gap-1">
               <span>●●●●</span>
@@ -41,39 +41,39 @@ function PhoneMockup() {
           {/* App header */}
           <div className="flex items-center justify-between px-4 pt-3">
             <div className="flex size-8 items-center justify-center rounded-full bg-gradient-to-br from-primary to-teal">
-              <span className="text-[10px] font-bold text-primary-foreground">A</span>
+              <span className="text-[10px] font-bold text-white">A</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="relative">
-                <Bell className="size-4 text-foreground" />
+                <Bell className="size-4 text-zinc-700" />
                 <span className="absolute -right-1 -top-1 flex size-3 items-center justify-center rounded-full bg-red-500 text-[7px] font-bold text-white">34</span>
               </div>
-              <span className="rounded-full border border-border/70 bg-background/60 px-2 py-0.5 text-[9px] font-semibold">HT11</span>
+              <span className="rounded-full border border-zinc-200 bg-white px-2 py-0.5 text-[9px] font-semibold text-zinc-700">HT11</span>
             </div>
           </div>
 
           {/* Card content */}
-          <div className="m-3 mt-4 rounded-2xl border border-border/60 bg-background/70 p-3">
+          <div className="m-3 mt-4 rounded-2xl border border-zinc-200 bg-white p-3 shadow-sm">
             <div className="text-[11px] font-semibold">HT11</div>
             <div className="mt-1 flex items-center gap-1 text-base font-bold text-teal">
               <TrendingUp className="size-3.5" />
               ₹3,746.15
-              <span className="ml-1 text-[8px] font-medium text-muted-foreground">P&L</span>
+              <span className="ml-1 text-[8px] font-medium text-zinc-500">P&L</span>
             </div>
             <div className="mt-2 grid grid-cols-2 gap-2 text-[9px]">
-              <div className="rounded-lg bg-background/60 p-2">
-                <div className="text-muted-foreground">Open</div>
+              <div className="rounded-lg bg-zinc-100 p-2">
+                <div className="text-zinc-500">Open</div>
                 <div className="font-bold">1</div>
               </div>
-              <div className="rounded-lg bg-background/60 p-2">
-                <div className="text-muted-foreground">Orders</div>
+              <div className="rounded-lg bg-zinc-100 p-2">
+                <div className="text-zinc-500">Orders</div>
                 <div className="font-bold">4</div>
               </div>
             </div>
-            <div className="mt-2 text-[9px] text-muted-foreground">
-              Realized P&L <span className="font-semibold text-foreground">₹3,731.00</span>
+            <div className="mt-2 text-[9px] text-zinc-500">
+              Realized P&L <span className="font-semibold text-zinc-900">₹3,731.00</span>
             </div>
-            <button className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg bg-red-500/15 py-2 text-[10px] font-semibold text-red-400">
+            <button className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg bg-red-500/10 py-2 text-[10px] font-semibold text-red-500">
               <Power className="size-3" /> Stop Algo
             </button>
           </div>
@@ -92,34 +92,34 @@ function PhoneMockup() {
 
           {/* Action rows */}
           <div className="m-3 space-y-2">
-            <div className="flex items-center gap-2 rounded-xl border border-border/60 bg-background/60 p-2.5">
+            <div className="flex items-center gap-2 rounded-xl border border-zinc-200 bg-white p-2.5 shadow-sm">
               <div className="flex size-7 items-center justify-center rounded-lg bg-teal/15 text-teal">
                 <Bot className="size-3.5" />
               </div>
               <div className="flex-1">
                 <div className="text-[10px] font-semibold">Create / Automate Strategy</div>
-                <div className="text-[8px] text-muted-foreground">Builder • Backtest • Paper</div>
+                <div className="text-[8px] text-zinc-500">Builder • Backtest • Paper</div>
               </div>
             </div>
-            <div className="flex items-center gap-2 rounded-xl border border-border/60 bg-background/60 p-2.5">
+            <div className="flex items-center gap-2 rounded-xl border border-zinc-200 bg-white p-2.5 shadow-sm">
               <div className="flex size-7 items-center justify-center rounded-lg bg-primary/15 text-primary">
                 <Layers className="size-3.5" />
               </div>
               <div className="flex-1">
                 <div className="text-[10px] font-semibold">Use Ready-Made Strategies</div>
-                <div className="text-[8px] text-muted-foreground">Curated • Backtested • Ready to run</div>
+                <div className="text-[8px] text-zinc-500">Curated • Backtested • Ready to run</div>
               </div>
             </div>
           </div>
 
           {/* Bottom nav */}
-          <div className="flex items-center justify-around border-t border-border/60 px-3 py-2.5 text-[8px] text-muted-foreground">
+          <div className="flex items-center justify-around border-t border-zinc-200 px-3 py-2.5 text-[8px] text-zinc-500">
             <span className="font-semibold text-teal">Home</span>
             <span>Trade</span>
             <span>Strategy</span>
             <span>Ready</span>
             <div className="flex size-7 items-center justify-center rounded-lg bg-gradient-to-br from-primary to-teal">
-              <span className="text-[10px] font-bold text-primary-foreground">→</span>
+              <span className="text-[10px] font-bold text-white">→</span>
             </div>
           </div>
           </div>
