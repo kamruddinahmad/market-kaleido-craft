@@ -16,8 +16,12 @@ function FloatCard({ title, Icon }: { title: string; Icon: typeof Bot }) {
       </div>
       <div className="text-lg font-semibold leading-tight md:text-xl">{title}</div>
       {/* Arrow flowing out from phone toward this card (visible on lg+) */}
-      <div className="pointer-events-none absolute left-full top-1/2 hidden h-[3px] w-32 -translate-y-1/2 rounded-full bg-gradient-to-l from-teal via-teal/80 to-transparent shadow-[0_0_12px_oklch(0.78_0.14_185/0.8),0_0_24px_oklch(0.78_0.14_185/0.5)] lg:block xl:w-40">
-        <span className="absolute left-0 top-1/2 size-3 -translate-y-1/2 rotate-45 border-b-[3px] border-l-[3px] border-teal shadow-[0_0_10px_oklch(0.78_0.14_185/0.8)]" />
+      <div className="pointer-events-none absolute left-full top-1/2 hidden -translate-y-1/2 items-center lg:flex">
+        <span className="block h-[2px] w-32 bg-gradient-to-l from-violet via-violet/80 to-transparent shadow-[0_0_10px_oklch(0.62_0.22_295/0.9),0_0_20px_oklch(0.62_0.22_295/0.6)] xl:w-40" />
+        <span
+          className="-ml-[1px] block h-0 w-0 border-y-[10px] border-l-[14px] border-y-transparent border-l-violet"
+          style={{ filter: "drop-shadow(0 0 6px oklch(0.62 0.22 295 / 0.9)) drop-shadow(0 0 12px oklch(0.62 0.22 295 / 0.6))" }}
+        />
       </div>
     </div>
   );
