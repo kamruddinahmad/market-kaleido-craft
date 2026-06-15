@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "a7180bd4-7605-4fce-a67a-6757328abc73",
+  "asset_id": "d9c190a6-979b-4c91-a7a4-08886e9e9b2a",
   "project_id": "a90add65-a83a-4103-ab24-963b30cd9d53",
-  "url": "/__l5e/assets-v1/a7180bd4-7605-4fce-a67a-6757328abc73/hero-phone-robot.png",
-  "r2_key": "a/v1/a90add65-a83a-4103-ab24-963b30cd9d53/a7180bd4-7605-4fce-a67a-6757328abc73/hero-phone-robot.png",
-  "original_filename": "hero-phone-robot.png",
-  "size": 1250991,
-  "content_type": "image/png",
-  "created_at": "2026-06-15T13:12:59Z"
+  "url": "/__l5e/assets-v1/d9c190a6-979b-4c91-a7a4-08886e9e9b2a/hero-phone-robot-full.jpg",
+  "r2_key": "a/v1/a90add65-a83a-4103-ab24-963b30cd9d53/d9c190a6-979b-4c91-a7a4-08886e9e9b2a/hero-phone-robot-full.jpg",
+  "original_filename": "hero-phone-robot-full.jpg",
+  "size": 373486,
+  "content_type": "image/jpeg",
+  "created_at": "2026-06-15T13:16:32Z"
 }
