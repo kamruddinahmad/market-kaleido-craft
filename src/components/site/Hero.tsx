@@ -1,5 +1,5 @@
 import { BrainCircuit, ArrowRight } from "lucide-react";
-import heroBrain from "@/assets/hero-robot.png";
+import heroBrain from "@/assets/hero-robot-new.jpg.asset.json";
 
 export function Hero() {
 
