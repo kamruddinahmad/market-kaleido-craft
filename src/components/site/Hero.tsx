@@ -85,7 +85,7 @@ export function Hero() {
           <div className="relative mx-auto max-w-md lg:max-w-none">
             <div className="absolute inset-0 -z-10 mx-auto h-[420px] w-[420px] translate-y-6 rounded-full bg-gradient-to-br from-teal/30 via-violet/25 to-cyan/20 blur-[100px] animate-pulse-glow" />
             <img
-              src={heroBrain}
+              src={heroBrain.url}
               alt="Robotic AI brain powering algorithmic trading"
               width={1024}
               height={1024}
