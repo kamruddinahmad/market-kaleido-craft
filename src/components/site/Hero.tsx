@@ -91,6 +91,12 @@ export function Hero() {
               width={1024}
               height={820}
               className="relative h-auto w-full max-w-[560px] mx-auto object-contain animate-float drop-shadow-[0_0_60px_oklch(0.78_0.14_185/0.55)] mix-blend-screen"
+              style={{
+                WebkitMaskImage:
+                  "radial-gradient(ellipse 75% 80% at 55% 50%, #000 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                maskImage:
+                  "radial-gradient(ellipse 75% 80% at 55% 50%, #000 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+              }}
             />
 
             {/* Floating stat cards */}
