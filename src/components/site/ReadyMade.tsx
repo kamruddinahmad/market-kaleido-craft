@@ -68,9 +68,10 @@ const STRATEGIES = [
 ];
 
 const steps = [
-  { n: "01", title: "Get", desc: "Choose or Create a Strategy" },
-  { n: "02", title: "Set", desc: "Backtest & Validate" },
-  { n: "03", title: "Algo Go Live", desc: "Go Live in Real Market" },
+  { n: "01", title: "Get", desc: "Pick a ready-made strategy or build your own with AI in minutes.", icon: Target },
+  { n: "02", title: "Set", desc: "Backtest, paper trade and fine-tune until the numbers look right.", icon: SlidersHorizontal },
+  { n: "03", title: "Algo", desc: "Deploy live and let AlgoAI execute trades with smart risk controls.", icon: Rocket },
+
 ];
 
 function StrategyCard({ s }: { s: (typeof STRATEGIES)[number] }) {
