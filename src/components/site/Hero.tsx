@@ -81,16 +81,16 @@ export function Hero() {
 
         </div>
 
-        {/* Right: Robotic brain (transparent) */}
+        {/* Right: Phone + robot with candle effects */}
         <div className="order-1 lg:order-2 relative hidden lg:block">
           <div className="relative mx-auto max-w-md lg:max-w-none">
             <div className="absolute inset-0 -z-10 mx-auto h-[420px] w-[420px] translate-y-6 rounded-full bg-gradient-to-br from-teal/30 via-violet/25 to-cyan/20 blur-[100px] animate-pulse-glow" />
             <img
               src={heroBrain}
-              alt="Robotic AI brain powering algorithmic trading"
+              alt="SMC ACE 2.0 trading app with AI robot assistant and live candlestick chart"
               width={1024}
-              height={1024}
-              className="relative h-auto w-full max-w-[520px] mx-auto object-contain animate-float drop-shadow-[0_0_60px_oklch(0.78_0.14_185/0.5)]"
+              height={820}
+              className="relative h-auto w-full max-w-[560px] mx-auto object-contain animate-float drop-shadow-[0_0_60px_oklch(0.78_0.14_185/0.55)] mix-blend-screen"
             />
 
             {/* Floating stat cards */}
