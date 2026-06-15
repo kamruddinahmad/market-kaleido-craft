@@ -8,8 +8,10 @@ import {
   ChevronLeft,
   ChevronRight,
   BadgeCheck,
-  
+  Target,
+  SlidersHorizontal,
 } from "lucide-react";
+
 
 const highlights = [
   { icon: Rocket, label: "Deploy proven strategies instantly with one-click live automation" },
