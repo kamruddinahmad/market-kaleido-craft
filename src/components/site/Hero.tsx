@@ -1,5 +1,6 @@
 import { BrainCircuit, ArrowRight } from "lucide-react";
-import heroBrain from "@/assets/hero-robot.png";
+import heroAsset from "@/assets/hero-phone-robot.png.asset.json";
+const heroBrain = heroAsset.url;
 
 export function Hero() {
 
