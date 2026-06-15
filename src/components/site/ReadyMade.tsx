@@ -8,8 +8,10 @@ import {
   ChevronLeft,
   ChevronRight,
   BadgeCheck,
-  
+  Target,
+  SlidersHorizontal,
 } from "lucide-react";
+
 
 const highlights = [
   { icon: Rocket, label: "Deploy proven strategies instantly with one-click live automation" },
@@ -66,9 +68,10 @@ const STRATEGIES = [
 ];
 
 const steps = [
-  { n: "01", title: "Get", desc: "Choose or Create a Strategy" },
-  { n: "02", title: "Set", desc: "Backtest & Validate" },
-  { n: "03", title: "Algo Go Live", desc: "Go Live in Real Market" },
+  { n: "01", title: "Get", desc: "Pick a ready-made strategy or build your own with AI in minutes.", icon: Target },
+  { n: "02", title: "Set", desc: "Backtest, paper trade and fine-tune until the numbers look right.", icon: SlidersHorizontal },
+  { n: "03", title: "Algo", desc: "Deploy live and let AlgoAI execute trades with smart risk controls.", icon: Rocket },
+
 ];
 
 function StrategyCard({ s }: { s: (typeof STRATEGIES)[number] }) {
@@ -141,31 +144,34 @@ export function ReadyMade() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Steps section (kept) */}
         <div className="mx-auto max-w-3xl text-center">
-          <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)]">Get Started</span>
-          <h3 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
+          <h3 className="text-4xl font-bold tracking-tight md:text-5xl">
             <span className="text-gradient-brand">Get, Set, Algo</span>
           </h3>
-          <p className="mt-4 text-sm text-muted-foreground">Start your automated trading journey</p>
+          <p className="mt-4 text-base text-muted-foreground">Three simple steps to trade like a pro.</p>
         </div>
 
-        <div className="relative mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {steps.map((s, i) => (
-            <div key={s.n} className="group relative">
-              <div className="glass relative rounded-3xl p-7 transition-all hover:-translate-y-1 hover:glow">
-                <div className="font-mono text-xs tracking-widest text-teal">STEP {s.n}</div>
-                <h4 className="mt-3 text-lg font-semibold">{s.title}</h4>
-                <p className="mt-2 text-sm text-muted-foreground">{s.desc}</p>
-                <div className="absolute -right-2 -top-3 rounded-full bg-gradient-to-br from-primary to-teal p-2 text-xs font-bold text-primary-foreground">
-                  {i + 1}
+        <div className="relative mt-12 grid gap-6 md:grid-cols-3">
+          {steps.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <div key={s.n} className="relative">
+                <div className="relative rounded-2xl border border-teal/20 bg-background/40 p-8 text-center shadow-[0_4px_30px_-10px_oklch(0.78_0.14_185/0.25)] transition-all hover:-translate-y-1 hover:border-teal/50 hover:shadow-[0_8px_40px_-10px_oklch(0.78_0.14_185/0.4)]">
+                  <div className="mx-auto inline-flex size-14 items-center justify-center rounded-full bg-teal/15 text-teal">
+                    <Icon className="size-6" />
+                  </div>
+                  <div className="mt-5 font-mono text-xs font-semibold tracking-[0.2em] text-teal">STEP {s.n}</div>
+                  <h4 className="mt-2 text-2xl font-bold text-gradient-brand">{s.title}</h4>
+                  <p className="mt-3 text-sm text-muted-foreground">{s.desc}</p>
                 </div>
+                {i < steps.length - 1 && (
+                  <div className="pointer-events-none absolute right-[-22px] top-1/2 hidden -translate-y-1/2 items-center md:flex">
+                    <div className="h-[2px] w-8 bg-teal/50" />
+                    <div className="size-0 border-y-[6px] border-l-[8px] border-y-transparent border-l-teal/60" />
+                  </div>
+                )}
               </div>
-              {i < steps.length - 1 && (
-                <div className="absolute right-[-14px] top-1/2 hidden -translate-y-1/2 lg:block">
-                  <div className="h-px w-7 bg-gradient-to-r from-teal/60 to-transparent" />
-                </div>
-              )}
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Ready-Made Strategies — Marketplace style */}
