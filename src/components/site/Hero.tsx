@@ -84,20 +84,35 @@ export function Hero() {
         {/* Right: Phone + robot with candle effects */}
         <div className="order-1 lg:order-2 relative hidden lg:block">
           <div className="relative mx-auto max-w-md lg:max-w-none">
-            <div className="absolute inset-0 -z-10 mx-auto h-[420px] w-[420px] translate-y-6 rounded-full bg-gradient-to-br from-teal/30 via-violet/25 to-cyan/20 blur-[100px] animate-pulse-glow" />
-            <img
-              src={heroBrain}
-              alt="SMC ACE 2.0 trading app with AI robot assistant and live candlestick chart"
-              width={1024}
-              height={820}
-              className="relative h-auto w-full max-w-[560px] mx-auto object-contain animate-float drop-shadow-[0_0_60px_oklch(0.78_0.14_185/0.55)] mix-blend-screen"
+            {/* Theme-colored aura behind image */}
+            <div className="absolute inset-0 -z-10 mx-auto h-[460px] w-[460px] translate-y-6 rounded-full bg-gradient-to-br from-teal/40 via-violet/30 to-cyan/25 blur-[110px] animate-pulse-glow" />
+            <div className="absolute inset-0 -z-10 mx-auto h-[300px] w-[300px] translate-y-10 rounded-full bg-primary/25 blur-[80px]" />
+
+            <div
+              className="relative mx-auto w-full max-w-[560px]"
               style={{
                 WebkitMaskImage:
-                  "radial-gradient(ellipse 75% 80% at 55% 50%, #000 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                  "radial-gradient(ellipse 70% 75% at 55% 50%, #000 45%, rgba(0,0,0,0.85) 65%, rgba(0,0,0,0.3) 85%, transparent 100%)",
                 maskImage:
-                  "radial-gradient(ellipse 75% 80% at 55% 50%, #000 55%, rgba(0,0,0,0.6) 75%, transparent 100%)",
+                  "radial-gradient(ellipse 70% 75% at 55% 50%, #000 45%, rgba(0,0,0,0.85) 65%, rgba(0,0,0,0.3) 85%, transparent 100%)",
               }}
-            />
+            >
+              <img
+                src={heroBrain}
+                alt="SMC ACE 2.0 trading app with AI robot assistant and live candlestick chart"
+                width={1024}
+                height={820}
+                className="relative h-auto w-full object-contain animate-float drop-shadow-[0_0_70px_oklch(0.78_0.14_185/0.65)] mix-blend-screen"
+              />
+              {/* Theme color tint */}
+              <div
+                className="pointer-events-none absolute inset-0 mix-blend-color opacity-60"
+                style={{
+                  background:
+                    "linear-gradient(135deg, oklch(0.55 0.18 250 / 0.5), oklch(0.65 0.16 210 / 0.35) 45%, oklch(0.78 0.14 185 / 0.5))",
+                }}
+              />
+            </div>
 
             {/* Floating stat cards */}
             <div className="glass absolute left-0 top-10 hidden rounded-2xl px-4 py-3 text-xs animate-float md:block">
