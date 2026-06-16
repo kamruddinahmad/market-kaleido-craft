@@ -6,7 +6,7 @@ export function Hero() {
 
 
   return (
-    <section id="hero" className="relative isolate overflow-hidden py-[132px]">
+    <section id="hero" className="relative isolate overflow-hidden py-[122px]">
       {/* Orbital background */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
         <div className="relative h-[900px] w-[900px] max-w-[140vw] max-h-[140vw] opacity-90">
