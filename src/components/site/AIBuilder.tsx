@@ -13,11 +13,11 @@ import {
 } from "lucide-react";
 
 const highlights = [
-  { icon: MessageSquare, label: "Prompt-based strategy creation" },
-  { icon: Cpu, label: "AI-assisted automation" },
-  { icon: Workflow, label: "Real-time signal execution" },
-  { icon: GraduationCap, label: "Beginner-friendly workflow" },
-  { icon: Sliders, label: "Strategy customization with smart controls" },
+  { icon: MessageSquare, label: "Describe your Idea" },
+  { icon: Cpu, label: "Automate with AI" },
+  { icon: Wand2, label: "Build without coding" },
+  { icon: Sliders, label: "Customize with precision" },
+  { icon: Workflow, label: "Execute in real time" },
 ];
 
 const SAMPLES = [
@@ -117,7 +117,7 @@ export function AIBuilder() {
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)]">AI Strategy Builder</span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)]">Think. Build. Trade.</span>
           <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
             Build Your Own <span className="text-gradient-brand">AI Trading Formula</span>
           </h2>
@@ -127,16 +127,16 @@ export function AIBuilder() {
             define your conditions, and let AlgoAI build and automate your strategy instantly.
           </p>
 
-          <ul className="mt-8 space-y-3">
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2">
             {highlights.map(({ icon: Icon, label }) => (
               <li
                 key={label}
-                className="group flex items-center gap-3 text-sm transition-transform hover:translate-x-1"
+                className="glass-strong group flex items-center gap-3 rounded-2xl px-4 py-3 transition-all duration-300 hover:-translate-y-1 hover:border-teal/60 hover:shadow-[0_10px_30px_-10px_oklch(0.78_0.14_185/0.6)]"
               >
-                <span className="inline-flex size-8 items-center justify-center rounded-xl bg-teal/15 text-teal transition-all group-hover:bg-teal/25 group-hover:rotate-6 group-hover:scale-110">
+                <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-teal/20 text-teal transition-transform group-hover:scale-110 group-hover:rotate-6">
                   <Icon className="size-4" />
-                </span>
-                {label}
+                </div>
+                <div className="text-sm font-semibold leading-tight">{label}</div>
               </li>
             ))}
           </ul>
