@@ -181,8 +181,11 @@ export function Options() {
 
             <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {features.map(({ icon: Icon, title }) => (
-                <div key={title} className="glass flex items-center gap-2 rounded-2xl px-3 py-2.5 text-xs font-medium">
-                  <Icon className="size-4 text-teal" /> {title}
+                <div
+                  key={title}
+                  className="group glass flex items-center gap-2 rounded-2xl px-3 py-2.5 text-xs font-medium transition-all duration-300 hover:-translate-y-1 hover:border-teal/60 hover:shadow-[0_10px_30px_-10px_oklch(0.78_0.14_185/0.6)]"
+                >
+                  <Icon className="size-4 text-teal transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6" /> {title}
                 </div>
               ))}
             </div>
