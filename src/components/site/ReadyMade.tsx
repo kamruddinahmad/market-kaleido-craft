@@ -205,7 +205,7 @@ export function ReadyMade() {
                     <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-teal/20 text-teal">
                       <Icon className="size-6" />
                     </div>
-                    <div className="text-base font-semibold leading-tight md:text-lg">{label}</div>
+                    <div className="text-lg font-semibold leading-tight md:text-xl">{label}</div>
                   </li>
                 ))}
               </ul>
