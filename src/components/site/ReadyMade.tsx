@@ -196,14 +196,16 @@ export function ReadyMade() {
                 A curated marketplace of expert-built, battle-tested strategies — ready to deploy in one click.
               </p>
 
-              <ul className="mt-8 flex flex-wrap gap-3">
+              <ul className="mt-8 grid gap-4 sm:grid-cols-2">
                 {highlights.map(({ icon: Icon, label }) => (
                   <li
                     key={label}
-                    className="group inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/60 px-4 py-2.5 text-sm font-semibold shadow-[0_4px_20px_-8px_oklch(0.78_0.14_185/0.3)] transition-all hover:-translate-y-0.5 hover:border-teal/50 hover:bg-background/80"
+                    className="glass-strong group flex items-center gap-4 rounded-2xl px-5 py-4 transition-all hover:-translate-y-1 hover:border-teal/50"
                   >
-                    <Icon className="size-4 text-teal transition-transform group-hover:scale-110" />
-                    <span>{label}</span>
+                    <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-teal/20 text-teal">
+                      <Icon className="size-6" />
+                    </div>
+                    <div className="text-base font-semibold leading-tight md:text-lg">{label}</div>
                   </li>
                 ))}
               </ul>
