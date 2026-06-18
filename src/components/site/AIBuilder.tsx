@@ -4,7 +4,6 @@ import {
   MessageSquare,
   Cpu,
   Workflow,
-  GraduationCap,
   Sliders,
   Send,
   Loader2,
