@@ -11,7 +11,7 @@ export function TradingView() {
         {/* LEFT: heading */}
         <div>
           <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)]">
-            TradingView Integration
+            Connect. Sync. Trade.
           </span>
           <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
             Build automated trades from <span className="text-gradient-brand">TradingView alerts</span>
