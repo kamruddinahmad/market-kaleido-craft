@@ -14,10 +14,10 @@ import {
 
 
 const highlights = [
-  { icon: Rocket, label: "Deploy proven strategies instantly with one-click live automation" },
-  { icon: Activity, label: "Real-time monitoring, adaptive optimization & seamless performance tracking" },
-  { icon: Repeat, label: "Designed for disciplined, scalable & consistency-driven trading" },
-  { icon: Gauge, label: "Ultra-fast, low-latency trade execution for maximum efficiency" },
+  { icon: Rocket, label: "Deploy in one click" },
+  { icon: Activity, label: "Monitor in real time" },
+  { icon: Repeat, label: "Scale with consistency" },
+  { icon: Gauge, label: "Execute with speed" },
 ];
 
 // Pre-generated sparkline points (uptrend & volatile uptrend)
@@ -196,16 +196,14 @@ export function ReadyMade() {
                 A curated marketplace of expert-built, battle-tested strategies — ready to deploy in one click.
               </p>
 
-              <ul className="mt-8 space-y-3">
+              <ul className="mt-8 flex flex-wrap gap-3">
                 {highlights.map(({ icon: Icon, label }) => (
                   <li
                     key={label}
-                    className="group flex items-start gap-3 text-sm transition-transform hover:translate-x-1"
+                    className="group inline-flex items-center gap-2 rounded-full border border-border/60 bg-background/60 px-4 py-2.5 text-sm font-semibold shadow-[0_4px_20px_-8px_oklch(0.78_0.14_185/0.3)] transition-all hover:-translate-y-0.5 hover:border-teal/50 hover:bg-background/80"
                   >
-                    <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-xl bg-teal/15 text-teal transition-all group-hover:bg-teal/25 group-hover:rotate-6 group-hover:scale-110">
-                      <Icon className="size-4" />
-                    </span>
-                    <span className="pt-1">{label}</span>
+                    <Icon className="size-4 text-teal transition-transform group-hover:scale-110" />
+                    <span>{label}</span>
                   </li>
                 ))}
               </ul>
