@@ -200,12 +200,12 @@ export function ReadyMade() {
                 {highlights.map(({ icon: Icon, label }) => (
                   <li
                     key={label}
-                    className="glass-strong group flex items-center gap-4 rounded-2xl px-5 py-4 transition-all hover:-translate-y-1 hover:border-teal/50"
+                    className="glass-strong group flex items-center gap-3 rounded-2xl px-4 py-3 transition-all duration-300 hover:-translate-y-1 hover:border-teal/60 hover:shadow-[0_10px_30px_-10px_oklch(0.78_0.14_185/0.6)]"
                   >
-                    <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-teal/20 text-teal">
-                      <Icon className="size-6" />
+                    <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-primary/30 to-teal/20 text-teal transition-transform group-hover:scale-110 group-hover:rotate-6">
+                      <Icon className="size-4" />
                     </div>
-                    <div className="text-lg font-semibold leading-tight md:text-xl">{label}</div>
+                    <div className="text-sm font-semibold leading-tight">{label}</div>
                   </li>
                 ))}
               </ul>
