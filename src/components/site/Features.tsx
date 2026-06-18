@@ -1,17 +1,18 @@
-import { Bot, Layers, LineChart, Link2 } from "lucide-react";
+import { Bot, Blocks, FileText, Settings2, Zap } from "lucide-react";
 import phoneAsset from "@/assets/iphone-frame2.png.asset.json";
 
 const cards = [
-  { title: "Build Algo Strategies with AI", icon: Bot },
-  { title: "Automate TradingView Strategies", icon: Link2 },
-  { title: "Real-time Backtest Engine", icon: LineChart },
-  { title: "Ready-made Algo Strategies", icon: Layers },
+  { title: "Describe your strategy", icon: FileText },
+  { title: "Automate with AI", icon: Bot },
+  { title: "Execute in real time", icon: Zap },
+  { title: "Build without coding", icon: Blocks },
+  { title: "Customize with precision", icon: Settings2 },
 ];
 
 function FloatCard({ title, Icon }: { title: string; Icon: typeof Bot }) {
   return (
-    <div className="glass-strong group relative flex items-center gap-4 rounded-2xl px-5 py-4 transition-all hover:-translate-y-1 hover:border-teal/50">
-      <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-teal/20 text-teal">
+    <div className="glass-strong group relative flex w-full items-center gap-4 rounded-2xl px-5 py-4 transition-all hover:-translate-y-1 hover:border-teal/50 lg:w-[360px]">
+      <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-teal/20 text-teal transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
         <Icon className="size-6" />
       </div>
       <div className="text-lg font-semibold leading-tight md:text-xl">{title}</div>
