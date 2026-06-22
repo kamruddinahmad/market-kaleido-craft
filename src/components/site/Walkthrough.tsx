@@ -1,4 +1,4 @@
-import { Play } from "lucide-react";
+import videoAsset from "@/assets/smc-algoai-walkthrough.mp4.asset.json";
 
 export function Walkthrough() {
   const steps = [
