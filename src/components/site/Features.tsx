@@ -11,19 +11,11 @@ const cards = [
 
 function FloatCard({ title, Icon }: { title: string; Icon: typeof Bot }) {
   return (
-    <div className="glass-strong group relative flex w-full items-center gap-4 rounded-2xl px-5 py-4 transition-all hover:-translate-y-1 hover:border-teal/50 lg:w-[360px]">
-      <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary/30 to-teal/20 text-teal transition-transform duration-300 group-hover:scale-110 group-hover:rotate-6">
+    <div className="glass-strong group relative flex w-full items-center gap-4 rounded-2xl border border-white/10 bg-background/60 px-5 py-4 transition-all hover:-translate-y-1 hover:border-teal/60 hover:shadow-[0_10px_30px_-10px_oklch(0.78_0.14_185/0.6)] lg:w-[420px]">
+      <div className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-teal/15 text-teal ring-1 ring-teal/30 transition-transform duration-300 group-hover:scale-110">
         <Icon className="size-6" />
       </div>
       <div className="text-lg font-semibold leading-tight md:text-xl">{title}</div>
-      {/* Arrow flowing out from phone toward this card (visible on lg+) */}
-      <div className="pointer-events-none absolute left-full top-1/2 hidden -translate-y-1/2 items-center lg:flex">
-        <span className="block h-[2px] w-32 bg-gradient-to-l from-violet via-violet/80 to-transparent shadow-[0_0_10px_oklch(0.62_0.22_295/0.9),0_0_20px_oklch(0.62_0.22_295/0.6)] xl:w-40" />
-        <span
-          className="-ml-[1px] block h-0 w-0 border-y-[10px] border-l-[14px] border-y-transparent border-l-violet"
-          style={{ filter: "drop-shadow(0 0 6px oklch(0.62 0.22 295 / 0.9)) drop-shadow(0 0 12px oklch(0.62 0.22 295 / 0.6))" }}
-        />
-      </div>
     </div>
   );
 }
