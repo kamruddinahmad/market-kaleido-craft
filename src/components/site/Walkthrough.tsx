@@ -1,4 +1,4 @@
-import { Play } from "lucide-react";
+import videoAsset from "@/assets/smc-algoai-walkthrough.mp4.asset.json";
 
 export function Walkthrough() {
   const steps = [
@@ -26,18 +26,13 @@ export function Walkthrough() {
         <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div className="lg:col-span-2">
             <div className="group relative aspect-video overflow-hidden rounded-3xl glass-strong glow">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-violet/20" />
-              <div className="absolute inset-0 bg-grid opacity-30" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <button className="group/btn flex size-20 items-center justify-center rounded-full bg-gradient-to-br from-primary to-teal text-primary-foreground transition-transform hover:scale-110">
-                  <Play className="size-8 fill-current" />
-                  <span className="absolute size-20 animate-pulse-glow rounded-full bg-teal/30" />
-                </button>
-              </div>
-              <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between">
-                <span className="text-sm font-medium">AlgoAI Platform Walkthrough</span>
-                <span className="text-xs text-muted-foreground">04:32</span>
-              </div>
+              <video
+                src={videoAsset.url}
+                controls
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             </div>
           </div>
 
