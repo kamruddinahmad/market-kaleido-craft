@@ -185,12 +185,10 @@ export function ReadyMade() {
             <div className="order-2">
 
               <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)]">
-                Ready. Set. Trade.
+                Ready-Made Strategies
               </span>
               <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-5xl">
-                Build less.<br />
-                <span className="text-gradient-brand">Trade smarter.</span><br />
-                Automate instantly.
+                Ready. <span className="text-gradient-brand">Set.</span> Trade
               </h2>
               <p className="mt-5 max-w-md text-sm text-muted-foreground">
                 A curated marketplace of expert-built, battle-tested strategies — ready to deploy in one click.
