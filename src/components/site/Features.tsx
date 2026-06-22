@@ -1,12 +1,12 @@
-import { Bot, Blocks, FileText, Settings2, Zap } from "lucide-react";
+import { Bot, LineChart, BarChart3, Bell, Layers } from "lucide-react";
 import phoneAsset from "@/assets/iphone-frame2.png.asset.json";
 
 const cards = [
-  { title: "Describe your strategy", icon: FileText },
-  { title: "Automate with AI", icon: Bot },
-  { title: "Execute in real time", icon: Zap },
-  { title: "Build without coding", icon: Blocks },
-  { title: "Customize with precision", icon: Settings2 },
+  { title: "Ready-Made Algo Strategies", icon: Layers },
+  { title: "Build Algo Strategies with AI", icon: Bot },
+  { title: "Real-Time Backtest Engine", icon: BarChart3 },
+  { title: "Advanced Options Trading", icon: LineChart },
+  { title: "Automate Trading View Alerts", icon: Bell },
 ];
 
 function FloatCard({ title, Icon }: { title: string; Icon: typeof Bot }) {
