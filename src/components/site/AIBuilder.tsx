@@ -116,9 +116,9 @@ export function AIBuilder() {
 
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-14 px-6 lg:grid-cols-2">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)]">Think. Build. Trade.</span>
+          <span className="inline-flex items-center gap-2 rounded-full border border-teal/40 bg-teal/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-teal shadow-[0_0_20px_-5px_oklch(0.78_0.14_185/0.6)]">AI Strategy Builder</span>
           <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
-            Build Your Own <span className="text-gradient-brand">AI Trading Formula</span>
+            Think. <span className="text-gradient-brand">Build.</span> Trade
           </h2>
           <p className="mt-4 text-sm text-muted-foreground">Your Strategy. Your Rules. Powered by AI.</p>
           <p className="mt-6 text-sm text-muted-foreground">
