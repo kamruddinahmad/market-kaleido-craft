@@ -158,12 +158,11 @@ export function ReadyMade() {
             return (
               <div key={s.n} className="relative">
                 <div className="relative rounded-2xl border border-teal/20 bg-background/40 p-8 text-center shadow-[0_4px_30px_-10px_oklch(0.78_0.14_185/0.25)] transition-all hover:-translate-y-1 hover:border-teal/50 hover:shadow-[0_8px_40px_-10px_oklch(0.78_0.14_185/0.4)]">
-                  <div className="mx-auto inline-flex size-14 items-center justify-center rounded-full bg-teal/15 text-teal">
+                  <div className="font-mono text-xs font-semibold tracking-[0.2em] text-teal">STEP {s.n}</div>
+                  <div className="mx-auto mt-4 inline-flex size-14 items-center justify-center rounded-full bg-teal/15 text-teal">
                     <Icon className="size-6" />
                   </div>
-                  <div className="mt-5 font-mono text-xs font-semibold tracking-[0.2em] text-teal">STEP {s.n}</div>
-                  <h4 className="mt-2 text-2xl font-bold text-gradient-brand">{s.title}</h4>
-                  <p className="mt-3 text-sm text-muted-foreground">{s.desc}</p>
+                  <p className="mt-5 text-base font-bold text-white">{s.desc}</p>
                 </div>
                 {i < steps.length - 1 && (
                   <div className="pointer-events-none absolute right-[-22px] top-1/2 hidden -translate-y-1/2 items-center md:flex">
