@@ -48,7 +48,7 @@ export function Features() {
             </div>
 
             {/* Right - phone image */}
-            <div className="relative flex justify-center lg:-ml-6 lg:justify-start">
+            <div className="relative flex justify-center lg:justify-start">
               <img
                 src={phoneAsset.url}
                 alt="SMC algo trading mobile app"
