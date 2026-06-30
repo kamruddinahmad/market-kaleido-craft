@@ -217,7 +217,7 @@ export function ReadyMade() {
               <div className="glass-strong relative rounded-3xl p-5 glow-violet">
                 <div className="flex items-start justify-between gap-3">
                   <div>
-                    <h3 className="text-xl font-bold">Ready Strategies</h3>
+                    <h3 className="text-xl font-bold">Ready Made Strategies</h3>
                     <p className="mt-0.5 text-xs text-muted-foreground">
                       Expert-built strategies for every market condition.
                     </p>
