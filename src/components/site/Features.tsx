@@ -52,7 +52,7 @@ export function Features() {
               <img
                 src={phoneAsset.url}
                 alt="SMC algo trading mobile app"
-                className="w-[220px] sm:w-[260px] lg:w-[300px] drop-shadow-[0_40px_60px_oklch(0.55_0.18_250/0.35)]"
+                className="w-[280px] sm:w-[340px] lg:w-[400px] drop-shadow-[0_40px_60px_oklch(0.55_0.18_250/0.35)]"
               />
             </div>
           </div>
