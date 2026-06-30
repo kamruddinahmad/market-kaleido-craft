@@ -1,5 +1,5 @@
 import { Bot, LineChart, BarChart3, Bell, Layers } from "lucide-react";
-import phoneAsset from "@/assets/iphone-frame3.png.asset.json";
+import phoneAsset from "@/assets/iphone-frame4.png.asset.json";
 
 const cards = [
   { title: "Ready-Made Algo Strategies", icon: Layers },
