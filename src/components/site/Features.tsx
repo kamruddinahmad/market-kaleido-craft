@@ -39,16 +39,16 @@ export function Features() {
         <div className="relative mt-20">
           <div className="absolute inset-x-0 top-1/2 -z-10 mx-auto h-[420px] max-w-4xl -translate-y-1/2 rounded-[3rem] bg-gradient-to-r from-primary/25 via-violet/20 to-teal/25 opacity-50 blur-2xl" />
 
-          <div className="grid grid-cols-1 items-center justify-items-center gap-4 lg:grid-cols-2 lg:gap-0">
+          <div className="flex flex-col items-center justify-center gap-8 lg:flex-row lg:gap-0">
             {/* Left content - cards flowing out of phone */}
-            <div className="flex flex-col items-center gap-5 lg:items-end">
+            <div className="flex flex-col items-center gap-5 lg:items-end lg:pr-0">
               {cards.map((c) => (
                 <FloatCard key={c.title} title={c.title} Icon={c.icon} />
               ))}
             </div>
 
             {/* Right - phone image */}
-            <div className="relative flex justify-center lg:justify-start">
+            <div className="relative flex justify-center lg:-ml-6 lg:justify-start">
               <img
                 src={phoneAsset.url}
                 alt="SMC algo trading mobile app"
@@ -56,6 +56,7 @@ export function Features() {
               />
             </div>
           </div>
+
 
         </div>
       </div>
