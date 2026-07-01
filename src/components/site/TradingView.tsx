@@ -10,7 +10,7 @@ const features = [
 
 export function TradingView() {
   return (
-    <section id="tradingview" className="relative overflow-hidden pt-0 pb-28">
+    <section id="tradingview" className="relative overflow-hidden py-28">
       <div className="absolute inset-0 -z-10">
         <div className="absolute left-1/4 top-1/2 size-[500px] -translate-y-1/2 rounded-full bg-violet/15 blur-[140px]" />
       </div>
