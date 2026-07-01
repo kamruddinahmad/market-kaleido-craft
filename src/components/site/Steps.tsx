@@ -7,7 +7,7 @@ const steps = [
 
 export function Steps() {
   return (
-    <section className="py-28">
+    <section className="py-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-4xl font-bold tracking-tight md:text-5xl">

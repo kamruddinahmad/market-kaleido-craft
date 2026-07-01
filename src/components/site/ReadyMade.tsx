@@ -140,7 +140,7 @@ export function ReadyMade() {
   const offset = page * 296; // card width + gap
 
   return (
-    <section id="strategies" className="relative pt-0 pb-28">
+    <section id="strategies" className="relative py-20">
       <div className="mx-auto max-w-7xl px-6">
         {/* Steps section (kept) */}
         <div className="mx-auto max-w-3xl text-center">
