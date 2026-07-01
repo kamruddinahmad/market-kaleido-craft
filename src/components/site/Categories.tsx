@@ -11,7 +11,7 @@ const cats = [
 
 export function Categories() {
   return (
-    <section className="py-20">
+    <section className="py-28">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="mx-auto max-w-2xl text-center text-4xl font-bold tracking-tight md:text-5xl">
           Dive deep into <span className="text-lilac">what suits you best.</span>
