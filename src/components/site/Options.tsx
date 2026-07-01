@@ -102,7 +102,7 @@ export function Options() {
   }, [paused]);
 
   return (
-    <section id="options" className="relative py-28">
+    <section id="options" className="relative py-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2">
           {/* Mock payoff chart */}

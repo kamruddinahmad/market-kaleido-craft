@@ -16,7 +16,7 @@ const faqs = [
 export function FAQs() {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section id="faqs" className="relative pt-[20px] pb-28">
+    <section id="faqs" className="relative py-20">
       <div className="mx-auto max-w-4xl px-6">
         <div className="text-center">
           <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
