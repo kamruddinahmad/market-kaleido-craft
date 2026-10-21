@@ -9,6 +9,9 @@ import {
   Loader2,
   CheckCircle2,
   Wand2,
+  TrendingUp,
+  LineChart,
+  BarChart3,
 } from "lucide-react";
 
 const highlights = [
@@ -19,75 +22,118 @@ const highlights = [
   { icon: Workflow, label: "Execute in real time" },
 ];
 
-const SAMPLES = [
-  "Buy NIFTY when RSI < 30 and price crosses above 20 EMA. Exit at 1.5% target or 0.8% stop.",
-  "Short BANKNIFTY when 5-min candle closes below VWAP with volume > 2x average. Trail SL by 0.5%.",
-  "Iron Condor on NIFTY weekly expiry, sell 0.20 delta strikes, exit at 50% profit or 2x premium loss.",
+type StrategyKind = "time" | "indicator" | "price";
+
+const STRATEGY_TYPES: {
+  id: StrategyKind;
+  label: string;
+  icon: typeof TrendingUp;
+  prompt: string;
+}[] = [
+  {
+    id: "time",
+    label: "Time-based Strategy",
+    icon: TrendingUp,
+    prompt:
+      "Enter NIFTY at 09:30 after the first 15-min candle closes above the opening range. Square-off at 15:15 with target 1.5% and SL 0.8%.",
+  },
+  {
+    id: "indicator",
+    label: "Indicator Based Strategy",
+    icon: LineChart,
+    prompt:
+      "Buy NIFTY when RSI_14 > 30 AND SUPERTREND_10_3 = 1. Exit when RSI_14 > 78 with target 1.5% and SL 0.8%.",
+  },
+  {
+    id: "price",
+    label: "Price Based Strategy",
+    icon: BarChart3,
+    prompt:
+      "Buy NIFTY on breakout above day high with volume 2x average. Exit below day low, target 1.5% and SL 0.8%.",
+  },
 ];
 
 type Parsed = {
-  instrument: string;
-  side: string;
-  entry: string;
-  exit: string;
-  timeframe: string;
+  script: string;
+  timeDays: string;
+  indicators: string;
+  conditions: { long: string; short: string };
   risk: string;
+  name: string;
   confidence: number;
   backtest: { cagr: string; winRate: string; trades: number };
 };
 
-function parseStrategy(prompt: string): Parsed {
+function detectKind(p: string): StrategyKind {
+  if (/rsi|supertrend|ema|vwap|macd|indicator/.test(p)) return "indicator";
+  if (/price|day high|day low|breakout|level/.test(p)) return "price";
+  if (/09:|0930|09:30|15:15|time|morning|opening range/.test(p)) return "time";
+  return "indicator";
+}
+
+function parseStrategy(kind: StrategyKind, prompt: string): Parsed {
   const p = prompt.toLowerCase();
-  const instrument = /banknifty/.test(p)
-    ? "BANKNIFTY"
+  const script = /banknifty/.test(p)
+    ? "Banknifty • FNO"
     : /nifty/.test(p)
-      ? "NIFTY 50"
+      ? "Nifty • FNO"
       : /sensex/.test(p)
-        ? "SENSEX"
+        ? "Sensex • FNO"
         : /finnifty/.test(p)
-          ? "FINNIFTY"
-          : "NIFTY 50";
+          ? "Finnifty • FNO"
+          : "Nifty • FNO";
 
-  const side = /(short|sell)/.test(p) ? "SHORT" : /condor|straddle|strangle/.test(p) ? "NEUTRAL" : "LONG";
-  const timeframe = /1[- ]?min/.test(p)
-    ? "1m"
-    : /3[- ]?min/.test(p)
-      ? "3m"
-      : /15[- ]?min/.test(p)
-        ? "15m"
-        : /weekly/.test(p)
-          ? "Weekly"
-          : "5m";
-
-  const tgt = p.match(/(\d+(?:\.\d+)?)\s*%\s*(target|profit)?/);
-  const sl = p.match(/(\d+(?:\.\d+)?)\s*%\s*(stop|sl|loss)/);
-
-  const entry = /rsi/.test(p)
-    ? "RSI(14) crossover + EMA confirmation"
-    : /vwap/.test(p)
-      ? "VWAP breakout with volume filter"
-      : /condor|straddle|strangle/.test(p)
-        ? "Multi-leg options structure"
-        : "Momentum + trend confirmation";
-
-  const exit = `Target ${tgt?.[1] ?? "1.5"}% • SL ${sl?.[1] ?? "0.8"}%`;
-  const risk = side === "NEUTRAL" ? "Defined risk (max loss capped)" : "Per-trade risk: 1% capital";
-
-  // Deterministic-ish confidence from length
+  const timeDays = "Intraday (MIS) • BOTH • 09:15 - 15:15 • All days";
   const conf = Math.min(96, 62 + (prompt.length % 30));
   const cagr = (18 + (prompt.length % 25)).toFixed(1);
   const winRate = (58 + (prompt.length % 15)).toString();
   const trades = 120 + (prompt.length % 80);
+  const backtest = { cagr: `+${cagr}%`, winRate: `${winRate}%`, trades };
+
+  if (kind === "time") {
+    return {
+      script,
+      timeDays,
+      indicators: "No indicators • Time-based rules",
+      conditions: {
+        long: "Entry at 09:30 after first 15-min candle closes above opening range",
+        short: "Entry at 09:30 after opening range breakdown",
+      },
+      risk: "100 Trades",
+      name: "Opening Range Time Strategy",
+      confidence: conf,
+      backtest,
+    };
+  }
+
+  if (kind === "indicator") {
+    return {
+      script,
+      timeDays,
+      indicators: "2 Indicators • rsi_14, supertrend_10_3",
+      conditions: {
+        long: "(RSI_14 > 30 AND SUPERTREND_10_3 = 1)",
+        short: "RSI_14 > 78",
+      },
+      risk: "100 Trades",
+      name: "RSI Supertrend Strategy",
+      confidence: conf,
+      backtest,
+    };
+  }
 
   return {
-    instrument,
-    side,
-    entry,
-    exit,
-    timeframe,
-    risk,
+    script,
+    timeDays,
+    indicators: "No indicators • Price-level rules",
+    conditions: {
+      long: "Buy above day high with volume > 2x average",
+      short: "Sell below day low with volume > 2x average",
+    },
+    risk: "100 Trades",
+    name: "Price Breakout Strategy",
     confidence: conf,
-    backtest: { cagr: `+${cagr}%`, winRate: `${winRate}%`, trades },
+    backtest,
   };
 }
 
@@ -96,14 +142,15 @@ export function AIBuilder() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<Parsed | null>(null);
 
-  const onSubmit = (text?: string) => {
+  const onSubmit = (text?: string, kind?: StrategyKind) => {
     const value = (text ?? prompt).trim();
     if (!value) return;
     setPrompt(value);
     setLoading(true);
     setResult(null);
+    const resolvedKind = kind ?? detectKind(value.toLowerCase());
     setTimeout(() => {
-      setResult(parseStrategy(value));
+      setResult(parseStrategy(resolvedKind, value));
       setLoading(false);
     }, 1100);
   };
@@ -173,13 +220,13 @@ export function AIBuilder() {
 
               <div className="mt-3 flex flex-wrap gap-1.5">
                 <span className="text-[11px] text-muted-foreground/80">Try:</span>
-                {SAMPLES.map((s, i) => (
+                {STRATEGY_TYPES.map(({ id, label, icon: Icon, prompt: sample }) => (
                   <button
-                    key={i}
-                    onClick={() => onSubmit(s)}
-                    className="rounded-full border border-border/70 bg-background/60 px-2.5 py-1 text-[11px] text-muted-foreground transition-colors hover:border-teal/60 hover:text-teal"
+                    key={id}
+                    onClick={() => onSubmit(sample, id)}
+                    className="inline-flex items-center gap-1.5 rounded-full border border-border/70 bg-background/60 px-2.5 py-1 text-[11px] text-muted-foreground transition-colors hover:border-teal/60 hover:text-teal"
                   >
-                    Example {i + 1}
+                    <Icon className="size-3" /> {label}
                   </button>
                 ))}
               </div>
@@ -224,20 +271,51 @@ export function AIBuilder() {
                   <>
                     <div className="mt-3 space-y-2">
                       {[
-                        { k: "Instrument", v: result.instrument },
-                        { k: "Side", v: result.side },
-                        { k: "Timeframe", v: result.timeframe },
-                        { k: "Entry", v: result.entry },
-                        { k: "Exit", v: result.exit },
-                        { k: "Risk", v: result.risk },
+                        { k: "Select Scripts", v: result.script },
+                        { k: "Strategy Time & Days", v: result.timeDays },
+                        { k: "Add Indicators", v: result.indicators },
                       ].map((r, i) => (
                         <div
                           key={r.k}
-                          className="flex items-center justify-between rounded-xl bg-background/60 px-3 py-2 text-xs animate-fade-in"
+                          className="flex items-center justify-between gap-3 rounded-xl bg-background/60 px-3 py-2 text-xs animate-fade-in"
                           style={{ animationDelay: `${i * 60}ms` }}
                         >
-                          <span className="text-muted-foreground">{r.k}</span>
-                          <span className="font-medium">{r.v}</span>
+                          <span className="text-muted-foreground whitespace-nowrap">{r.k}</span>
+                          <span className="text-right font-medium">{r.v}</span>
+                        </div>
+                      ))}
+
+                      <div
+                        className="rounded-xl bg-background/60 px-3 py-2 text-xs animate-fade-in"
+                        style={{ animationDelay: "180ms" }}
+                      >
+                        <div className="flex items-center justify-between gap-3">
+                          <span className="text-muted-foreground whitespace-nowrap">Long & Short Condition Builder</span>
+                          <span className="text-right font-medium">2 Conditions</span>
+                        </div>
+                        <div className="mt-1.5 space-y-1">
+                          <div className="text-[11px] leading-snug">
+                            <span className="font-semibold text-teal">Long:</span>{" "}
+                            <span className="text-muted-foreground">{result.conditions.long}</span>
+                          </div>
+                          <div className="text-[11px] leading-snug">
+                            <span className="font-semibold text-red-400">Short:</span>{" "}
+                            <span className="text-muted-foreground">{result.conditions.short}</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {[
+                        { k: "Risk Management (Optional)", v: result.risk },
+                        { k: "Strategy Names", v: result.name },
+                      ].map((r, i) => (
+                        <div
+                          key={r.k}
+                          className="flex items-center justify-between gap-3 rounded-xl bg-background/60 px-3 py-2 text-xs animate-fade-in"
+                          style={{ animationDelay: `${240 + i * 60}ms` }}
+                        >
+                          <span className="text-muted-foreground whitespace-nowrap">{r.k}</span>
+                          <span className="text-right font-medium">{r.v}</span>
                         </div>
                       ))}
                     </div>
@@ -266,7 +344,7 @@ export function AIBuilder() {
             {!loading && !result && (
               <div className="mt-5 flex items-center gap-2 rounded-2xl border border-dashed border-border/60 bg-background/40 p-4 text-xs text-muted-foreground">
                 <Sparkles className="size-3.5 text-teal" />
-                Enter a strategy idea above or pick an example — AlgoAI will parse, validate and backtest it instantly.
+                Enter a strategy idea above or pick a strategy type — AlgoAI will parse, validate and backtest it instantly.
               </div>
             )}
           </div>
