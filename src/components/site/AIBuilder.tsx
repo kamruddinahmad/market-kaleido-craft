@@ -1,11 +1,10 @@
 import { useState } from "react";
 import {
-  Sparkles,
   MessageSquare,
   Cpu,
   Workflow,
   Sliders,
-  Send,
+  ArrowRight,
   Loader2,
   CheckCircle2,
   Wand2,
@@ -60,8 +59,6 @@ type Parsed = {
   conditions: { long: string; short: string };
   risk: string;
   name: string;
-  confidence: number;
-  backtest: { cagr: string; winRate: string; trades: number };
 };
 
 function detectKind(p: string): StrategyKind {
@@ -74,35 +71,28 @@ function detectKind(p: string): StrategyKind {
 function parseStrategy(kind: StrategyKind, prompt: string): Parsed {
   const p = prompt.toLowerCase();
   const script = /banknifty/.test(p)
-    ? "Banknifty • FNO"
+    ? "Banknifty · FNO"
     : /nifty/.test(p)
-      ? "Nifty • FNO"
+      ? "Nifty · FNO"
       : /sensex/.test(p)
-        ? "Sensex • FNO"
+        ? "Sensex · FNO"
         : /finnifty/.test(p)
-          ? "Finnifty • FNO"
-          : "Nifty • FNO";
+          ? "Finnifty · FNO"
+          : "Nifty · FNO";
 
-  const timeDays = "Intraday (MIS) • BOTH • 09:15 - 15:15 • All days";
-  const conf = Math.min(96, 62 + (prompt.length % 30));
-  const cagr = (18 + (prompt.length % 25)).toFixed(1);
-  const winRate = (58 + (prompt.length % 15)).toString();
-  const trades = 120 + (prompt.length % 80);
-  const backtest = { cagr: `+${cagr}%`, winRate: `${winRate}%`, trades };
+  const timeDays = "Intraday (MIS) · BOTH · 09:15 - 15:15 · All days";
 
   if (kind === "time") {
     return {
       script,
       timeDays,
-      indicators: "No indicators • Time-based rules",
+      indicators: "No indicators · Time-based rules",
       conditions: {
         long: "Entry at 09:30 after first 15-min candle closes above opening range",
         short: "Entry at 09:30 after opening range breakdown",
       },
       risk: "100 Trades",
       name: "Opening Range Time Strategy",
-      confidence: conf,
-      backtest,
     };
   }
 
@@ -110,30 +100,26 @@ function parseStrategy(kind: StrategyKind, prompt: string): Parsed {
     return {
       script,
       timeDays,
-      indicators: "2 Indicators • rsi_14, supertrend_10_3",
+      indicators: "2 Indicators · rsi_14, supertrend_10_3",
       conditions: {
         long: "(RSI_14 > 30 AND SUPERTREND_10_3 = 1)",
         short: "RSI_14 > 78",
       },
       risk: "100 Trades",
       name: "RSI Supertrend Strategy",
-      confidence: conf,
-      backtest,
     };
   }
 
   return {
     script,
     timeDays,
-    indicators: "No indicators • Price-level rules",
+    indicators: "No indicators · Price-level rules",
     conditions: {
       long: "Buy above day high with volume > 2x average",
       short: "Sell below day low with volume > 2x average",
     },
     risk: "100 Trades",
     name: "Price Breakout Strategy",
-    confidence: conf,
-    backtest,
   };
 }
 
@@ -191,20 +177,8 @@ export function AIBuilder() {
         {/* Interactive builder */}
         <div className="relative">
           <div className="glass-strong relative rounded-3xl p-5 glow-violet">
-            <div className="flex items-center gap-2 border-b border-border/60 pb-3">
-              <div className="flex gap-1.5">
-                <span className="size-2.5 rounded-full bg-red-400/70" />
-                <span className="size-2.5 rounded-full bg-amber-400/70" />
-                <span className="size-2.5 rounded-full bg-teal/70" />
-              </div>
-              <span className="ml-2 text-xs text-muted-foreground">AlgoAI Builder — Live</span>
-              <span className="ml-auto inline-flex items-center gap-1.5 rounded-full bg-teal/15 px-2 py-0.5 text-[10px] font-medium text-teal">
-                <span className="size-1.5 rounded-full bg-teal animate-pulse-glow" /> AI Online
-              </span>
-            </div>
-
             {/* Prompt input */}
-            <div className="mt-5">
+            <div className="rounded-2xl border border-border/60 p-4">
               <label className="flex items-center gap-1.5 text-xs text-muted-foreground">
                 <Wand2 className="size-3.5 text-violet" /> Describe your strategy in plain English
               </label>
@@ -219,7 +193,6 @@ export function AIBuilder() {
               </div>
 
               <div className="mt-3 flex flex-wrap gap-1.5">
-                <span className="text-[11px] text-muted-foreground/80">Try:</span>
                 {STRATEGY_TYPES.map(({ id, label, icon: Icon, prompt: sample }) => (
                   <button
                     key={id}
@@ -230,121 +203,101 @@ export function AIBuilder() {
                   </button>
                 ))}
               </div>
-
-              <button
-                onClick={() => onSubmit()}
-                disabled={loading || !prompt.trim()}
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                {loading ? (
-                  <>
-                    <Loader2 className="size-4 animate-spin" /> AI is building your strategy…
-                  </>
-                ) : (
-                  <>
-                    <Send className="size-4" /> Generate Strategy
-                  </>
-                )}
-              </button>
             </div>
 
+            <button
+              onClick={() => onSubmit()}
+              disabled={loading || !prompt.trim()}
+              className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] via-[oklch(0.65_0.16_210)] to-[oklch(0.78_0.14_185)] px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {loading ? (
+                <>
+                  <Loader2 className="size-4 animate-spin" /> Creating strategy…
+                </>
+              ) : (
+                <>
+                  Create Strategy <ArrowRight className="size-4" />
+                </>
+              )}
+            </button>
+
             {/* Output */}
-            {(loading || result) && (
-              <div className="mt-5 rounded-2xl border border-teal/30 bg-teal/5 p-4 animate-fade-in">
-                <div className="flex items-center gap-2 text-xs text-teal">
-                  <Cpu className="size-3.5" /> AlgoAI
-                  {loading && (
-                    <span className="ml-auto inline-flex items-center gap-1 text-muted-foreground">
-                      <span className="size-1.5 animate-pulse rounded-full bg-teal" />
-                      <span className="size-1.5 animate-pulse rounded-full bg-teal [animation-delay:150ms]" />
-                      <span className="size-1.5 animate-pulse rounded-full bg-teal [animation-delay:300ms]" />
-                    </span>
-                  )}
-                  {result && (
-                    <span className="ml-auto inline-flex items-center gap-1 rounded-full bg-teal/15 px-2 py-0.5 text-[10px] font-semibold">
-                      <CheckCircle2 className="size-3" /> Confidence {result.confidence}%
-                    </span>
-                  )}
+            {result && (
+              <div className="mt-5 space-y-2.5 rounded-3xl bg-background/40 p-3 animate-fade-in">
+                {[
+                  { k: "Select Scripts", v: result.script },
+                  { k: "Strategy Time & Days", v: result.timeDays },
+                  { k: "Add Indicators", v: result.indicators },
+                ].map((r, i) => (
+                  <div
+                    key={r.k}
+                    className="flex items-start gap-3 rounded-2xl bg-background/80 p-3.5 animate-fade-in"
+                    style={{ animationDelay: `${i * 60}ms` }}
+                  >
+                    <div className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-teal/15 text-teal">
+                      <CheckCircle2 className="size-4" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold">{r.k}</div>
+                      <div className="mt-0.5 text-xs text-muted-foreground">{r.v}</div>
+                    </div>
+                  </div>
+                ))}
+
+                <div
+                  className="flex items-start gap-3 rounded-2xl bg-background/80 p-3.5 animate-fade-in"
+                  style={{ animationDelay: "180ms" }}
+                >
+                  <div className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-teal/15 text-teal">
+                    <CheckCircle2 className="size-4" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold">Long & Short Condition Builder</div>
+                    <div className="mt-1 space-y-1">
+                      <div className="text-xs leading-snug">
+                        <span className="font-semibold text-teal">Long:</span>{" "}
+                        <span className="text-muted-foreground">{result.conditions.long}</span>
+                      </div>
+                      <div className="text-xs leading-snug">
+                        <span className="font-semibold text-red-400">Short:</span>{" "}
+                        <span className="text-muted-foreground">{result.conditions.short}</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                {result && (
-                  <>
-                    <div className="mt-3 space-y-2">
-                      {[
-                        { k: "Select Scripts", v: result.script },
-                        { k: "Strategy Time & Days", v: result.timeDays },
-                        { k: "Add Indicators", v: result.indicators },
-                      ].map((r, i) => (
-                        <div
-                          key={r.k}
-                          className="flex items-center justify-between gap-3 rounded-xl bg-background/60 px-3 py-2 text-xs animate-fade-in"
-                          style={{ animationDelay: `${i * 60}ms` }}
-                        >
-                          <span className="text-muted-foreground whitespace-nowrap">{r.k}</span>
-                          <span className="text-right font-medium">{r.v}</span>
-                        </div>
-                      ))}
-
-                      <div
-                        className="rounded-xl bg-background/60 px-3 py-2 text-xs animate-fade-in"
-                        style={{ animationDelay: "180ms" }}
-                      >
-                        <div className="flex items-center justify-between gap-3">
-                          <span className="text-muted-foreground whitespace-nowrap">Long & Short Condition Builder</span>
-                          <span className="text-right font-medium">2 Conditions</span>
-                        </div>
-                        <div className="mt-1.5 space-y-1">
-                          <div className="text-[11px] leading-snug">
-                            <span className="font-semibold text-teal">Long:</span>{" "}
-                            <span className="text-muted-foreground">{result.conditions.long}</span>
-                          </div>
-                          <div className="text-[11px] leading-snug">
-                            <span className="font-semibold text-red-400">Short:</span>{" "}
-                            <span className="text-muted-foreground">{result.conditions.short}</span>
-                          </div>
-                        </div>
+                {[
+                  { k: "Risk Management (Optional)", v: result.risk },
+                  { k: "Strategy Names", v: result.name },
+                ].map((r, i) => (
+                  <div
+                    key={r.k}
+                    className="flex items-start gap-3 rounded-2xl bg-background/80 p-3.5 animate-fade-in"
+                    style={{ animationDelay: `${240 + i * 60}ms` }}
+                  >
+                    <div className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-teal/15 text-teal">
+                      <CheckCircle2 className="size-4" />
+                    </div>
+                    <div>
+                      <div className="text-sm font-semibold">{r.k}</div>
+                      <div className="mt-0.5 text-xs text-muted-foreground">
+                        {r.v}
+                        {r.k === "Strategy Names" && (
+                          <>
+                            {" · "}
+                            <span className="font-medium text-amber-400">Paused</span>
+                          </>
+                        )}
                       </div>
-
-                      {[
-                        { k: "Risk Management (Optional)", v: result.risk },
-                        { k: "Strategy Names", v: result.name },
-                      ].map((r, i) => (
-                        <div
-                          key={r.k}
-                          className="flex items-center justify-between gap-3 rounded-xl bg-background/60 px-3 py-2 text-xs animate-fade-in"
-                          style={{ animationDelay: `${240 + i * 60}ms` }}
-                        >
-                          <span className="text-muted-foreground whitespace-nowrap">{r.k}</span>
-                          <span className="text-right font-medium">{r.v}</span>
-                        </div>
-                      ))}
                     </div>
-
-                    <div className="mt-3 grid grid-cols-3 gap-2">
-                      {[
-                        { k: "Backtest CAGR", v: result.backtest.cagr, c: "text-teal" },
-                        { k: "Win Rate", v: result.backtest.winRate, c: "text-violet" },
-                        { k: "Trades", v: result.backtest.trades, c: "text-cyan" },
-                      ].map((m) => (
-                        <div key={m.k} className="rounded-xl bg-background/60 p-2.5 text-center">
-                          <div className="text-[10px] uppercase tracking-wider text-muted-foreground">{m.k}</div>
-                          <div className={`mt-0.5 text-sm font-bold ${m.c}`}>{m.v}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    <button className="mt-4 w-full rounded-xl bg-gradient-to-r from-[oklch(0.55_0.18_250)] to-[oklch(0.78_0.14_185)] py-2.5 text-xs font-semibold text-primary-foreground transition-transform hover:scale-[1.02]">
-                      Deploy Strategy →
-                    </button>
-                  </>
-                )}
+                  </div>
+                ))}
               </div>
             )}
 
-            {!loading && !result && (
-              <div className="mt-5 flex items-center gap-2 rounded-2xl border border-dashed border-border/60 bg-background/40 p-4 text-xs text-muted-foreground">
-                <Sparkles className="size-3.5 text-teal" />
-                Enter a strategy idea above or pick a strategy type — AlgoAI will parse, validate and backtest it instantly.
+            {loading && (
+              <div className="mt-5 flex items-center gap-2 rounded-2xl bg-background/40 p-3.5 text-xs text-muted-foreground">
+                <Cpu className="size-3.5 text-teal" /> AlgoAI is parsing your strategy…
               </div>
             )}
           </div>
