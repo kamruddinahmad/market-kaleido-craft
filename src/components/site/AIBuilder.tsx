@@ -285,7 +285,7 @@ export function AIBuilder() {
                         {r.k === "Strategy Names" && (
                           <>
                             {" · "}
-                            <span className="font-medium text-amber-400">Paused</span>
+                            <span className="font-medium text-emerald-400">Live</span>
                           </>
                         )}
                       </div>
