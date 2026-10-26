@@ -122,7 +122,7 @@ export function Options() {
                     <SelectContent>
                       {Object.entries(strategies).map(([k, s]) => (
                         <SelectItem key={k} value={k} className="text-xs">
-                          NIFTY • {s.label} • 28 Nov Exp
+                          {s.label}
                         </SelectItem>
                       ))}
                     </SelectContent>
